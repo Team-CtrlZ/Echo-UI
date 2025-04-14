@@ -1,39 +1,155 @@
+/* Colors */
+export interface ColorScale {
+  25?: string;
+  40?: string;
+  50: string;
+  100: string;
+  200: string;
+  300: string;
+  400: string;
+  500: string;
+  600: string;
+  700: string;
+  800: string;
+  900: string;
+  1000: string;
+}
+
+type AlphaColorType = 'white' | 'black';
+
+export type AlphaScale = {
+  [type in AlphaColorType]?: string;
+} & {
+  5: string;
+  10: string;
+  15?: string;
+  20: string;
+  25: string;
+  30: string;
+  45: string;
+  50: string;
+  65: string;
+  85: string;
+  95: string;
+};
+
+type ThemeType = 'light' | 'dark';
+
+/* Base Tokens */
 export interface ColorTokens {
-  violet50: string;
-  violet100: string;
-  violet500: string;
-  violet700: string;
-  white: string;
+  neutral: ColorScale;
+  grey: ColorScale;
+  violet: ColorScale;
+  blue: ColorScale;
+  red: ColorScale;
+  teal: ColorScale;
+  yellow: ColorScale;
+}
+
+/* Theme Colors */
+export interface BaseColors {
   black: string;
+  white: string;
+}
+
+export interface ThemeColors {
+  brand: ColorScale;
+  subBrand: ColorScale;
+  neutral: ColorScale;
+  critical: ColorScale;
+  information: ColorScale;
+  success: ColorScale;
+  warning: ColorScale;
+  base: BaseColors;
+}
+
+export interface ColorState {
+  default: string;
+  hover: string;
+  active: string;
+}
+
+export interface ColorVariant {
+  light: ColorState;
+  normal: ColorState;
+  dark: ColorState;
+  darker?: string;
+  black?: string;
 }
 
 export interface SemanticColors {
-  primary: {
-    default: string;
-    hover: string;
-    text: string;
-  };
-  text: {
-    default: string;
-    subdued: string;
+  primary: ColorVariant;
+  secondary: ColorVariant;
+  neutral: ColorVariant;
+  information: ColorVariant;
+  success: ColorVariant;
+  critical: ColorVariant;
+  white: ColorState;
+  alpha: {
+    [type in AlphaColorType]: AlphaScale;
   };
 }
 
-export interface ComponentColors {
-  button: {
-    bg: {
-      default: string;
-      hover: string;
-    };
-    text: string;
-  };
+export interface SemanticThemeColor {
+  light: SemanticColors;
+  dark: SemanticColors;
 }
+
+/* Component colors */
+export interface BackgroundColors {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  brand: string;
+  brandHover: string;
+  brandPressed: string;
+  dim: string;
+  disabled: string;
+  input: string;
+  toast: string;
+  tooltip: string;
+}
+
+export interface TextColors {
+  active: string;
+  default: string;
+  mute: string;
+  disabled: string;
+  brand: string;
+  brandPressed: string;
+  brandHover: string;
+  critical: string;
+  criticalBold: string;
+  info: string;
+  infoBold: string;
+  success: string;
+  successBold: string;
+  warning: string;
+  warningBold: string;
+  inverse: string;
+}
+
+export interface BorderColors {
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  disabled: string;
+  focusedRing: string;
+}
+
+export type ComponentColors = {
+  [type in ThemeType]: {
+    text: TextColors;
+    bg: BackgroundColors;
+    border: BorderColors;
+  };
+};
 
 export interface Theme {
   fontFamily: string;
   colors: {
     tokens: ColorTokens;
-    semantic: SemanticColors;
+    semantic: SemanticThemeColor;
     components: ComponentColors;
   };
 }
