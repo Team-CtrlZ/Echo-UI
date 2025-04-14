@@ -1,0 +1,1164 @@
+import {ColorItem, ColorPalette, Meta} from "@storybook/blocks";
+import {colorTokens} from "../theme/tokens/color.ts";
+import {themeColors} from "../theme/ThemeColors.js";
+import {semanticColors} from "../theme/semanticColors.js";
+import {componentColors} from "../theme/componentColors.js";
+
+<Meta title="Color tokens"/>
+
+# 🎨 Color Palette
+
+<br />
+<br />
+
+## 🧱 Reference tokens
+<ColorPalette>
+    <ColorItem
+        title="neutral"
+        subtitle="ref/neutral"
+        colors={{
+            50: colorTokens.neutral["50"],
+            100: colorTokens.neutral["100"],
+            200: colorTokens.neutral["200"],
+            300: colorTokens.neutral["300"],
+            400: colorTokens.neutral["400"],
+            500: colorTokens.neutral["500"],
+            600: colorTokens.neutral["600"],
+            700: colorTokens.neutral["700"],
+            800: colorTokens.neutral["800"],
+            900: colorTokens.neutral["900"],
+            1000: colorTokens.neutral["1000"]
+        }}
+    />
+    <ColorItem
+        title="grey"
+        subtitle="ref/grey"
+        colors={{
+            25: colorTokens.grey["25"],
+            40: colorTokens.grey["40"],
+            50: colorTokens.grey["50"],
+            100: colorTokens.grey["100"],
+            200: colorTokens.grey["200"],
+            300: colorTokens.grey["300"],
+            400: colorTokens.grey["400"],
+            500: colorTokens.grey["500"],
+            600: colorTokens.grey["600"],
+            700: colorTokens.grey["700"],
+            800: colorTokens.grey["800"],
+            900: colorTokens.grey["900"],
+            1000: colorTokens.grey["1000"]
+        }}
+    />
+    <ColorItem
+        title="blue"
+        subtitle="ref/blue"
+        colors={{
+            50: colorTokens.blue["50"],
+            100: colorTokens.blue["100"],
+            200: colorTokens.blue["200"],
+            300: colorTokens.blue["300"],
+            400: colorTokens.blue["400"],
+            500: colorTokens.blue["500"],
+            600: colorTokens.blue["600"],
+            700: colorTokens.blue["700"],
+            800: colorTokens.blue["800"],
+            900: colorTokens.blue["900"],
+            1000: colorTokens.blue["1000"]
+        }}
+    />
+    <ColorItem
+        title="teal"
+        subtitle="ref/teal"
+        colors={{
+            50: colorTokens.teal["50"],
+            100: colorTokens.teal["100"],
+            200: colorTokens.teal["200"],
+            300: colorTokens.teal["300"],
+            400: colorTokens.teal["400"],
+            500: colorTokens.teal["500"],
+            600: colorTokens.teal["600"],
+            700: colorTokens.teal["700"],
+            800: colorTokens.teal["800"],
+            900: colorTokens.teal["900"],
+            1000: colorTokens.teal["1000"]
+        }}
+    />
+    <ColorItem
+        title="yellow"
+        subtitle="ref/yellow"
+        colors={{
+            50: colorTokens.yellow["50"],
+            100: colorTokens.yellow["100"],
+            200: colorTokens.yellow["200"],
+            300: colorTokens.yellow["300"],
+            400: colorTokens.yellow["400"],
+            500: colorTokens.yellow["500"],
+            600: colorTokens.yellow["600"],
+            700: colorTokens.yellow["700"],
+            800: colorTokens.yellow["800"],
+            900: colorTokens.yellow["900"],
+            1000: colorTokens.yellow["1000"]
+        }}
+    />
+    <ColorItem
+        title="red"
+        subtitle="ref/red"
+        colors={{
+            50: colorTokens.red["50"],
+            100: colorTokens.red["100"],
+            200: colorTokens.red["200"],
+            300: colorTokens.red["300"],
+            400: colorTokens.red["400"],
+            500: colorTokens.red["500"],
+            600: colorTokens.red["600"],
+            700: colorTokens.red["700"],
+            800: colorTokens.red["800"],
+            900: colorTokens.red["900"],
+            1000: colorTokens.red["1000"]
+        }}
+    />
+    <ColorItem
+        title="violet"
+        subtitle="ref/violet"
+        colors={{
+            50: colorTokens.violet["50"],
+            100: colorTokens.violet["100"],
+            200: colorTokens.violet["200"],
+            300: colorTokens.violet["300"],
+            400: colorTokens.violet["400"],
+            500: colorTokens.violet["500"],
+            600: colorTokens.violet["600"],
+            700: colorTokens.violet["700"],
+            800: colorTokens.violet["800"],
+            900: colorTokens.violet["900"],
+            1000: colorTokens.violet["1000"]
+        }}
+    />
+</ColorPalette>
+
+<br />
+<br />
+
+## 🖼️ Theme colors
+<ColorPalette>
+    <ColorItem
+        title="brand"
+        subtitle="color/brand"
+        colors={{
+            50: themeColors.brand["50"],
+            100: themeColors.brand["100"],
+            200: themeColors.brand["200"],
+            300: themeColors.brand["300"],
+            400: themeColors.brand["400"],
+            500: themeColors.brand["500"],
+            600: themeColors.brand["600"],
+            700: themeColors.brand["700"],
+            800: themeColors.brand["800"],
+            900: themeColors.brand["900"],
+            1000: themeColors.brand["1000"]
+        }}
+    />
+    <ColorItem
+        title="sub brand"
+        subtitle="color/sub brand"
+        colors={{
+            25: themeColors.subBrand["25"],
+            40: themeColors.subBrand["40"],
+            50: themeColors.subBrand["50"],
+            100: themeColors.subBrand["100"],
+            200: themeColors.subBrand["200"],
+            300: themeColors.subBrand["300"],
+            400: themeColors.subBrand["400"],
+            500: themeColors.subBrand["500"],
+            600: themeColors.subBrand["600"],
+            700: themeColors.subBrand["700"],
+            800: themeColors.subBrand["800"],
+            900: themeColors.subBrand["900"],
+            1000: themeColors.subBrand["1000"]
+        }}
+    />
+    <ColorItem
+        title="neutral"
+        subtitle="color/neutral"
+        colors={{
+            50: themeColors.neutral["50"],
+            100: themeColors.neutral["100"],
+            200: themeColors.neutral["200"],
+            300: themeColors.neutral["300"],
+            400: themeColors.neutral["400"],
+            500: themeColors.neutral["500"],
+            600: themeColors.neutral["600"],
+            700: themeColors.neutral["700"],
+            800: themeColors.neutral["800"],
+            900: themeColors.neutral["900"],
+            1000: themeColors.neutral["1000"]
+        }}
+    />
+    <ColorItem
+        title="information"
+        subtitle="color/information"
+        colors={{
+            50: themeColors.information["50"],
+            100: themeColors.information["100"],
+            200: themeColors.information["200"],
+            300: themeColors.information["300"],
+            400: themeColors.information["400"],
+            500: themeColors.information["500"],
+            600: themeColors.information["600"],
+            700: themeColors.information["700"],
+            800: themeColors.information["800"],
+            900: themeColors.information["900"],
+            1000: themeColors.information["1000"]
+        }}
+    />
+    <ColorItem
+        title="success"
+        subtitle="color/success"
+        colors={{
+            50: themeColors.success["50"],
+            100: themeColors.success["100"],
+            200: themeColors.success["200"],
+            300: themeColors.success["300"],
+            400: themeColors.success["400"],
+            500: themeColors.success["500"],
+            600: themeColors.success["600"],
+            700: themeColors.success["700"],
+            800: themeColors.success["800"],
+            900: themeColors.success["900"],
+            1000: themeColors.success["1000"]
+        }}
+    />
+    <ColorItem
+        title="warning"
+        subtitle="color/warning"
+        colors={{
+            50: themeColors.warning["50"],
+            100: themeColors.warning["100"],
+            200: themeColors.warning["200"],
+            300: themeColors.warning["300"],
+            400: themeColors.warning["400"],
+            500: themeColors.warning["500"],
+            600: themeColors.warning["600"],
+            700: themeColors.warning["700"],
+            800: themeColors.warning["800"],
+            900: themeColors.warning["900"],
+            1000: themeColors.warning["1000"]
+        }}
+    />
+    <ColorItem
+        title="critical"
+        subtitle="color/critical"
+        colors={{
+            50: themeColors.critical["50"],
+            100: themeColors.critical["100"],
+            200: themeColors.critical["200"],
+            300: themeColors.critical["300"],
+            400: themeColors.critical["400"],
+            500: themeColors.critical["500"],
+            600: themeColors.critical["600"],
+            700: themeColors.critical["700"],
+            800: themeColors.critical["800"],
+            900: themeColors.critical["900"],
+            1000: themeColors.critical["1000"]
+        }}
+    />
+    <ColorItem
+        title="base"
+        subtitle="color/base"
+        colors={{
+            black: themeColors.base.black,
+            white: themeColors.base.white,
+        }}
+    />
+</ColorPalette>
+
+<br />
+<br />
+
+## 🧭 System colors
+
+### Primary
+<ColorPalette>
+    <ColorItem
+        title="Primary Darker"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.darker,
+            dark: semanticColors.dark.primary.darker,
+        }}
+    />
+    <ColorItem
+        title="Primary Dark"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.dark.default,
+            dark: semanticColors.dark.primary.dark.default,
+        }}
+    />
+    <ColorItem
+        title="Primary Dark:active"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.dark.active,
+            dark: semanticColors.dark.primary.dark.active,
+        }}
+    />
+    <ColorItem
+        title="Primary Dark:hover"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.dark.hover,
+            dark: semanticColors.dark.primary.dark.hover,
+        }}
+    />
+    <ColorItem
+        title="Primary Normal"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.normal.default,
+            dark: semanticColors.dark.primary.normal.default,
+        }}
+    />
+    <ColorItem
+        title="Primary Normal:active"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.normal.active,
+            dark: semanticColors.dark.primary.normal.active,
+        }}
+    />
+    <ColorItem
+        title="Primary Normal:hover"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.light.hover,
+            dark: semanticColors.dark.primary.light.hover,
+        }}
+    />
+    <ColorItem
+        title="Primary Light"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.light.default,
+            dark: semanticColors.dark.primary.light.default,
+        }}
+    />
+    <ColorItem
+        title="Primary Light:active"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.light.active,
+            dark: semanticColors.dark.primary.light.active,
+        }}
+    />
+    <ColorItem
+        title="Primary Light:hover"
+        subtitle="sys/primary"
+        colors={{
+            light: semanticColors.light.primary.light.hover,
+            dark: semanticColors.dark.primary.light.hover,
+        }}
+    />
+</ColorPalette>
+
+### Secondary
+<ColorPalette>
+    <ColorItem
+        title="Secondary Darker"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.darker,
+            dark: semanticColors.dark.secondary.darker,
+        }}
+    />
+    <ColorItem
+        title="Secondary Dark"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.dark.default,
+            dark: semanticColors.dark.secondary.dark.default,
+        }}
+    />
+    <ColorItem
+        title="Secondary Dark:active"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.dark.active,
+            dark: semanticColors.dark.secondary.dark.active,
+        }}
+    />
+    <ColorItem
+        title="Secondary Dark:hover"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.dark.hover,
+            dark: semanticColors.dark.secondary.dark.hover,
+        }}
+    />
+    <ColorItem
+        title="Secondary Normal"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.normal.default,
+            dark: semanticColors.dark.secondary.normal.default,
+        }}
+    />
+    <ColorItem
+        title="Secondary Normal:active"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.normal.active,
+            dark: semanticColors.dark.secondary.normal.active,
+        }}
+    />
+    <ColorItem
+        title="Secondary Normal:hover"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.light.hover,
+            dark: semanticColors.dark.secondary.light.hover,
+        }}
+    />
+    <ColorItem
+        title="Secondary Light"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.light.default,
+            dark: semanticColors.dark.secondary.light.default,
+        }}
+    />
+    <ColorItem
+        title="Secondary Light:active"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.light.active,
+            dark: semanticColors.dark.secondary.light.active,
+        }}
+    />
+    <ColorItem
+        title="Secondary Light:hover"
+        subtitle="sys/secondary"
+        colors={{
+            light: semanticColors.light.secondary.light.hover,
+            dark: semanticColors.dark.secondary.light.hover,
+        }}
+    />
+</ColorPalette>
+
+### White
+<ColorPalette>
+    <ColorItem
+        title="White"
+        subtitle="sys/white"
+        colors={{
+            light: semanticColors.light.white.default,
+            dark: semanticColors.dark.white.default,
+        }}
+    />
+    <ColorItem
+        title="White:active"
+        subtitle="sys/white"
+        colors={{
+            light: semanticColors.light.white.active,
+            dark: semanticColors.dark.white.active,
+        }}
+    />
+    <ColorItem
+        title="White:hover"
+        subtitle="sys/white"
+        colors={{
+            light: semanticColors.light.white.hover,
+            dark: semanticColors.dark.white.hover,
+        }}
+    />
+</ColorPalette>
+
+### Neutral
+<ColorPalette>
+    <ColorItem
+        title="Black"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.black,
+            dark: semanticColors.dark.neutral.black,
+        }}
+    />
+    <ColorItem
+        title="Neutral Darker"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.darker,
+            dark: semanticColors.dark.neutral.darker,
+        }}
+    />
+    <ColorItem
+        title="Neutral Dark"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.dark.default,
+            dark: semanticColors.dark.neutral.dark.default,
+        }}
+    />
+    <ColorItem
+        title="Neutral Dark:active"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.dark.active,
+            dark: semanticColors.dark.neutral.dark.active,
+        }}
+    />
+    <ColorItem
+        title="Neutral Dark:hover"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.dark.hover,
+            dark: semanticColors.dark.neutral.dark.hover,
+        }}
+    />
+    <ColorItem
+        title="Neutral Normal"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.normal.default,
+            dark: semanticColors.dark.neutral.normal.default,
+        }}
+    />
+    <ColorItem
+        title="Neutral Normal:active"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.normal.active,
+            dark: semanticColors.dark.neutral.normal.active,
+        }}
+    />
+    <ColorItem
+        title="Neutral Normal:hover"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.light.hover,
+            dark: semanticColors.dark.neutral.light.hover,
+        }}
+    />
+    <ColorItem
+        title="Neutral Light"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.light.default,
+            dark: semanticColors.dark.neutral.light.default,
+        }}
+    />
+    <ColorItem
+        title="Neutral Light:active"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.light.active,
+            dark: semanticColors.dark.neutral.light.active,
+        }}
+    />
+    <ColorItem
+        title="Neutral Light:hover"
+        subtitle="sys/neutral"
+        colors={{
+            light: semanticColors.light.neutral.light.hover,
+            dark: semanticColors.dark.neutral.light.hover,
+        }}
+    />
+</ColorPalette>
+
+### Critical
+<ColorPalette>
+    <ColorItem
+        title="Critical Darker"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.darker,
+            dark: semanticColors.dark.critical.darker,
+        }}
+    />
+    <ColorItem
+        title="Critical Dark"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.dark.default,
+            dark: semanticColors.dark.critical.dark.default,
+        }}
+    />
+    <ColorItem
+        title="Critical Dark:active"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.dark.active,
+            dark: semanticColors.dark.critical.dark.active,
+        }}
+    />
+    <ColorItem
+        title="Critical Dark:hover"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.dark.hover,
+            dark: semanticColors.dark.critical.dark.hover,
+        }}
+    />
+    <ColorItem
+        title="Critical Normal"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.normal.default,
+            dark: semanticColors.dark.critical.normal.default,
+        }}
+    />
+    <ColorItem
+        title="Critical Normal:active"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.normal.active,
+            dark: semanticColors.dark.critical.normal.active,
+        }}
+    />
+    <ColorItem
+        title="Critical Normal:hover"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.light.hover,
+            dark: semanticColors.dark.critical.light.hover,
+        }}
+    />
+    <ColorItem
+        title="Critical Light"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.light.default,
+            dark: semanticColors.dark.critical.light.default,
+        }}
+    />
+    <ColorItem
+        title="Critical Light:active"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.light.active,
+            dark: semanticColors.dark.critical.light.active,
+        }}
+    />
+    <ColorItem
+        title="Critical Light:hover"
+        subtitle="sys/critical"
+        colors={{
+            light: semanticColors.light.critical.light.hover,
+            dark: semanticColors.dark.critical.light.hover,
+        }}
+    />
+</ColorPalette>
+
+### Information
+<ColorPalette>
+    <ColorItem
+        title="Information Darker"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.darker,
+            dark: semanticColors.dark.information.darker,
+        }}
+    />
+    <ColorItem
+        title="Information Dark"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.dark.default,
+            dark: semanticColors.dark.information.dark.default,
+        }}
+    />
+    <ColorItem
+        title="Information Dark:active"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.dark.active,
+            dark: semanticColors.dark.information.dark.active,
+        }}
+    />
+    <ColorItem
+        title="Information Dark:hover"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.dark.hover,
+            dark: semanticColors.dark.information.dark.hover,
+        }}
+    />
+    <ColorItem
+        title="Information Normal"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.normal.default,
+            dark: semanticColors.dark.information.normal.default,
+        }}
+    />
+    <ColorItem
+        title="Information Normal:active"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.normal.active,
+            dark: semanticColors.dark.information.normal.active,
+        }}
+    />
+    <ColorItem
+        title="Information Normal:hover"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.light.hover,
+            dark: semanticColors.dark.information.light.hover,
+        }}
+    />
+    <ColorItem
+        title="Information Light"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.light.default,
+            dark: semanticColors.dark.information.light.default,
+        }}
+    />
+    <ColorItem
+        title="Information Light:active"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.light.active,
+            dark: semanticColors.dark.information.light.active,
+        }}
+    />
+    <ColorItem
+        title="Information Light:hover"
+        subtitle="sys/information"
+        colors={{
+            light: semanticColors.light.information.light.hover,
+            dark: semanticColors.dark.information.light.hover,
+        }}
+    />
+</ColorPalette>
+
+### Success
+<ColorPalette>
+    <ColorItem
+        title="Success Darker"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.darker,
+            dark: semanticColors.dark.success.darker,
+        }}
+    />
+    <ColorItem
+        title="Success Dark"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.dark.default,
+            dark: semanticColors.dark.success.dark.default,
+        }}
+    />
+    <ColorItem
+        title="Success Dark:active"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.dark.active,
+            dark: semanticColors.dark.success.dark.active,
+        }}
+    />
+    <ColorItem
+        title="Success Dark:hover"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.dark.hover,
+            dark: semanticColors.dark.success.dark.hover,
+        }}
+    />
+    <ColorItem
+        title="Success Normal"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.normal.default,
+            dark: semanticColors.dark.success.normal.default,
+        }}
+    />
+    <ColorItem
+        title="Success Normal:active"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.normal.active,
+            dark: semanticColors.dark.success.normal.active,
+        }}
+    />
+    <ColorItem
+        title="Success Normal:hover"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.light.hover,
+            dark: semanticColors.dark.success.light.hover,
+        }}
+    />
+    <ColorItem
+        title="Success Light"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.light.default,
+            dark: semanticColors.dark.success.light.default,
+        }}
+    />
+    <ColorItem
+        title="Success Light:active"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.light.active,
+            dark: semanticColors.dark.success.light.active,
+        }}
+    />
+    <ColorItem
+        title="Success Light:hover"
+        subtitle="sys/success"
+        colors={{
+            light: semanticColors.light.success.light.hover,
+            dark: semanticColors.dark.success.light.hover,
+        }}
+    />
+</ColorPalette>
+
+### Alpha
+<ColorPalette>
+    <ColorItem
+        title="light: alpha-black"
+        subtitle="sys/alpha"
+        colors={{
+            black: semanticColors.light.alpha.black.black,
+            5: semanticColors.light.alpha.black['5'],
+            10: semanticColors.light.alpha.black['10'],
+            15: semanticColors.light.alpha.black['15'],
+            20: semanticColors.light.alpha.black['20'],
+            25: semanticColors.light.alpha.black['25'],
+            30: semanticColors.light.alpha.black['30'],
+            45: semanticColors.light.alpha.black['45'],
+            50: semanticColors.light.alpha.black['50'],
+            65: semanticColors.light.alpha.black['65'],
+            85: semanticColors.light.alpha.black['85'],
+            95: semanticColors.light.alpha.black['95']
+        }}
+    />
+    <ColorItem
+        title="dark: alpha-black"
+        subtitle="sys/alpha"
+        colors={{
+            black: semanticColors.dark.alpha.black.black,
+            5: semanticColors.dark.alpha.black['5'],
+            10: semanticColors.dark.alpha.black['10'],
+            15: semanticColors.dark.alpha.black['15'],
+            20: semanticColors.dark.alpha.black['20'],
+            25: semanticColors.dark.alpha.black['25'],
+            30: semanticColors.dark.alpha.black['30'],
+            45: semanticColors.dark.alpha.black['45'],
+            50: semanticColors.dark.alpha.black['50'],
+            65: semanticColors.dark.alpha.black['65'],
+            85: semanticColors.dark.alpha.black['85'],
+            95: semanticColors.dark.alpha.black['95']
+        }}
+    />
+    <ColorItem
+        title="light: alpha-white"
+        subtitle="sys/alpha"
+        colors={{
+            black: semanticColors.light.alpha.white.white,
+            5: semanticColors.light.alpha.white['5'],
+            10: semanticColors.light.alpha.white['10'],
+            15: semanticColors.light.alpha.white['15'],
+            20: semanticColors.light.alpha.white['20'],
+            25: semanticColors.light.alpha.white['25'],
+            30: semanticColors.light.alpha.white['30'],
+            45: semanticColors.light.alpha.white['45'],
+            50: semanticColors.light.alpha.white['50'],
+            65: semanticColors.light.alpha.white['65'],
+            85: semanticColors.light.alpha.white['85'],
+            95: semanticColors.light.alpha.white['95']
+        }}
+    />
+    <ColorItem
+        title="dark: alpha-white"
+        subtitle="sys/alpha"
+        colors={{
+            white: semanticColors.dark.alpha.white.white,
+            5: semanticColors.dark.alpha.white['5'],
+            10: semanticColors.dark.alpha.white['10'],
+            15: semanticColors.dark.alpha.white['15'],
+            20: semanticColors.dark.alpha.white['20'],
+            25: semanticColors.dark.alpha.white['25'],
+            30: semanticColors.dark.alpha.white['30'],
+            45: semanticColors.dark.alpha.white['45'],
+            50: semanticColors.dark.alpha.white['50'],
+            65: semanticColors.dark.alpha.white['65'],
+            85: semanticColors.dark.alpha.white['85'],
+            95: semanticColors.dark.alpha.white['95']
+        }}
+    />
+</ColorPalette>
+
+## 🧩 Component colors
+
+### Background
+<ColorPalette>
+    <ColorItem
+        title="brand"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.brand,
+            dark: componentColors.dark.bg.brand,
+        }}
+    />
+    <ColorItem
+        title="brand-hover"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.brandHover,
+            dark: componentColors.dark.bg.brandHover,
+        }}
+    />
+    <ColorItem
+        title="brand-pressed"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.brandPressed,
+            dark: componentColors.dark.bg.brandPressed,
+        }}
+    />
+    <ColorItem
+        title="dim"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.dim,
+            dark: componentColors.dark.bg.dim,
+        }}
+    />
+    <ColorItem
+        title="disabled"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.disabled,
+            dark: componentColors.dark.bg.disabled,
+        }}
+    />
+    <ColorItem
+        title="input"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.input,
+            dark: componentColors.dark.bg.input,
+        }}
+    />
+    <ColorItem
+        title="primary"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.primary,
+            dark: componentColors.dark.bg.primary,
+        }}
+    />
+    <ColorItem
+        title="secondary"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.secondary,
+            dark: componentColors.dark.bg.secondary,
+        }}
+    />
+    <ColorItem
+        title="tertiary"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.tertiary,
+            dark: componentColors.dark.bg.tertiary,
+        }}
+    />
+    <ColorItem
+        title="toast"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.toast,
+            dark: componentColors.dark.bg.toast,
+        }}
+    />
+    <ColorItem
+        title="tooltip"
+        subtitle="sys/bg"
+        colors={{
+            light: componentColors.light.bg.tooltip,
+            dark: componentColors.dark.bg.tooltip,
+        }}
+    />
+</ColorPalette>
+
+### Border
+<ColorPalette>
+    <ColorItem
+        title="primary"
+        subtitle="sys/border"
+        colors={{
+            light: componentColors.light.border.primary,
+            dark: componentColors.dark.border.primary,
+        }}
+    />
+    <ColorItem
+        title="secondary"
+        subtitle="sys/border"
+        colors={{
+            light: componentColors.light.border.secondary,
+            dark: componentColors.dark.border.secondary,
+        }}
+    />
+    <ColorItem
+        title="tertiary"
+        subtitle="sys/border"
+        colors={{
+            light: componentColors.light.border.tertiary,
+            dark: componentColors.dark.border.tertiary,
+        }}
+    />
+    <ColorItem
+        title="disabled"
+        subtitle="sys/border"
+        colors={{
+            light: componentColors.light.border.disabled,
+            dark: componentColors.dark.border.disabled,
+        }}
+    />
+    <ColorItem
+        title="focus-ring"
+        subtitle="sys/border"
+        colors={{
+            light: componentColors.light.border.focusedRing,
+            dark: componentColors.dark.border.focusedRing,
+        }}
+    />
+</ColorPalette>
+
+### Text
+<ColorPalette>
+    <ColorItem
+        title="active"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.active,
+            dark: componentColors.dark.text.active,
+        }}
+    />
+    <ColorItem
+        title="default"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.default,
+            dark: componentColors.dark.text.default,
+        }}
+    />
+    <ColorItem
+        title="mute"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.mute,
+            dark: componentColors.dark.text.mute,
+        }}
+    />
+    <ColorItem
+        title="disabled"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.disabled,
+            dark: componentColors.dark.text.disabled,
+        }}
+    />
+    <ColorItem
+        title="brand"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.brand,
+            dark: componentColors.dark.text.brand,
+        }}
+    />
+    <ColorItem
+        title="brand-hover"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.brandHover,
+            dark: componentColors.dark.text.brandHover,
+        }}
+    />
+    <ColorItem
+        title="brand-pressed"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.brandPressed,
+            dark: componentColors.dark.text.brandPressed,
+        }}
+    />
+    <ColorItem
+        title="info"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.info,
+            dark: componentColors.dark.text.info,
+        }}
+    />
+    <ColorItem
+        title="info-bold"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.infoBold,
+            dark: componentColors.dark.text.infoBold,
+        }}
+    />
+    <ColorItem
+        title="critical"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.critical,
+            dark: componentColors.dark.text.critical,
+        }}
+    />
+    <ColorItem
+        title="critical-bold"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.criticalBold,
+            dark: componentColors.dark.text.criticalBold,
+        }}
+    />
+    <ColorItem
+        title="success"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.success,
+            dark: componentColors.dark.text.success,
+        }}
+    />
+    <ColorItem
+        title="success-bold"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.successBold,
+            dark: componentColors.dark.text.successBold,
+        }}
+    />
+    <ColorItem
+        title="warning"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.warning,
+            dark: componentColors.dark.text.warning,
+        }}
+    />
+    <ColorItem
+        title="warning-bold"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.warningBold,
+            dark: componentColors.dark.text.warningBold,
+        }}
+    />
+    <ColorItem
+        title="inverse"
+        subtitle="sys/text"
+        colors={{
+            light: componentColors.light.text.inverse,
+            dark: componentColors.dark.text.inverse,
+        }}
+    />
+</ColorPalette>
