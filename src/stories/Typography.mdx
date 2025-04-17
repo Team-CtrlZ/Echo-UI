@@ -1,0 +1,152 @@
+import { Meta, Typeset } from '@storybook/blocks';
+import {fontWeight} from "../theme/tokens/typhography.ts";
+
+<Meta title="Typography" />
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+export const typography = {
+    type: {
+        primary: `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif`
+    },
+    weight: {
+        regular: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        extraBold: 800
+    }
+}
+
+
+# Typography
+
+**Font:** Pretendard
+
+**Weights:** 400(Regular), 500(Medium), 600(Semibold), 700(Bold)
+
+## Body
+
+export const bodyTypography = {
+    ...typography,
+    weight : fontWeight,
+    size: {
+        xsm: '12px',
+        sm: '14px',
+        md: '16px',
+        lg: '28px'
+    },
+}
+
+<Typeset
+    fontSizes={[
+        bodyTypography.size.xsm,
+        bodyTypography.size.sm,
+        bodyTypography.size.md,
+        bodyTypography.size.lg
+    ]}
+    fontWeight={bodyTypography.weight.regular}
+    sampleText={SampleText}
+    fontFamily={bodyTypography.type.primary}
+/>
+
+
+## Heading
+
+export const headingTypography = {
+    ...typography,
+    weight: fontWeight,
+    size: {
+        xsm: '20px',
+        sm: '24px',
+        md: '28px',
+        lg: '32px',
+        xl: '36px',
+        '2xl': '40px',
+    }
+}
+
+<Typeset
+    fontSizes={[
+        headingTypography.size.xsm,
+        headingTypography.size.sm,
+        headingTypography.size.md,
+        headingTypography.size.lg,
+        headingTypography.size.xl,
+        headingTypography.size["2xl"]
+    ]}
+    fontWeight={headingTypography.weight.regular}
+    sampleText={SampleText}
+    fontFamily={headingTypography.type.primary}
+/>
+
+
+## Display
+
+export const displayTypography = {
+    ...typography,
+    size: {
+        xsm: '36px',
+        sm: '44px',
+        md: '52px',
+        lg: '112px',
+    }
+}
+
+<Typeset
+    fontSizes={[
+        displayTypography.size.xsm,
+        displayTypography.size.sm,
+        displayTypography.size.md,
+        displayTypography.size.lg,
+    ]}
+    fontWeight={displayTypography.weight.bold}
+    sampleText={SampleText}
+    fontFamily={displayTypography.type.primary}
+/>
+
+
+## Label
+
+export const labelTypography = {
+    ...typography,
+    size: {
+        xsm: '12px',
+        sm: '14px',
+        md: '16px',
+        lg: '18px',
+    }
+}
+
+<Typeset
+    fontSizes={[
+        labelTypography.size.xsm,
+        labelTypography.size.sm,
+        labelTypography.size.md,
+        labelTypography.size.lg,
+    ]}
+    fontWeight={labelTypography.weight.regular}
+    sampleText={SampleText}
+    fontFamily={labelTypography.type.primary}
+/>
+
+## Button
+
+export const buttonTypography = {
+    ...typography,
+    size: {
+        sm: '14px',
+        md: '14px',
+        lg: '16px',
+    }
+}
+
+<Typeset
+    fontSizes={[
+        buttonTypography.size.sm,
+        buttonTypography.size.md,
+        buttonTypography.size.lg,
+    ]}
+    fontWeight={buttonTypography.weight.semibold}
+    sampleText={SampleText}
+    fontFamily={buttonTypography.type.primary}
+/>
