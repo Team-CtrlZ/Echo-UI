@@ -1,5 +1,7 @@
 import { componentTypography } from '@/theme/componentTypography';
+import { semanticShadow } from '@/theme/semanticShadow';
 import { semanticTypography } from '@/theme/semanticTypography';
+import { shadowTokens } from '@/theme/tokens/shadow';
 import { Theme } from './Theme.types';
 import { colorTokens } from './tokens/color';
 import { semanticColors } from './semanticColors';
@@ -15,5 +17,9 @@ export const defaultTheme: Theme = {
   typography: {
     semantic: semanticTypography,
     components: componentTypography
+  },
+  shadows: {
+    tokens: shadowTokens,
+    semantic: semanticShadow
   }
 };
