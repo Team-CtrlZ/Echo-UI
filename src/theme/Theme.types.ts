@@ -145,11 +145,52 @@ export type ComponentColors = {
   };
 };
 
+/* Typography */
+export type TypographySize =
+  | 'xsm'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+  | '8xl'
+  | '9xl';
+export type SemanticTypographyType = 'display' | 'heading' | 'body';
+export type ComponentTypographyType = 'label' | 'button';
+
+export interface TypographyType {
+  fontSize: string;
+  fontWeight: number;
+  lineHeight: string;
+}
+
+export type SemanticTypography = {
+  [type in SemanticTypographyType]: {
+    [size in TypographySize]?: TypographyType;
+  };
+};
+
+export type ComponentTypography = {
+  [type in ComponentTypographyType]: {
+    [size in TypographySize]?: TypographyType;
+  };
+};
+
+/* Theme */
 export interface Theme {
   fontFamily: string;
   colors: {
     tokens: ColorTokens;
     semantic: SemanticThemeColor;
     components: ComponentColors;
+  };
+  typography: {
+    semantic: SemanticTypography;
+    components: ComponentTypography;
   };
 }
