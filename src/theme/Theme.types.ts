@@ -1,4 +1,6 @@
 /* Colors */
+import { shadowTokens } from '@/theme/tokens/shadow';
+
 export interface ColorScale {
   25?: string;
   40?: string;
@@ -181,6 +183,15 @@ export type ComponentTypography = {
   };
 };
 
+/* Shadow */
+export type ShadowType = typeof shadowTokens;
+export interface SemanticShadow {
+  elevationShadow2: string;
+  elevationShadow4: string;
+  elevationShadow8: string;
+  elevationShadow16: string;
+}
+
 /* Theme */
 export interface Theme {
   fontFamily: string;
@@ -192,5 +203,9 @@ export interface Theme {
   typography: {
     semantic: SemanticTypography;
     components: ComponentTypography;
+  };
+  shadows: {
+    tokens: ShadowType;
+    semantic: SemanticShadow;
   };
 }
