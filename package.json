@@ -18,7 +18,8 @@
     "./theme": {
       "import": "./dist/theme/index.js"
     },
-    "./Button": "./dist/Button"
+    "./Button": "./dist/Button",
+    "./Icon": "./dist/icons/index.js"
   },
   "dependencies": {
     "react": "^19.0.0",
