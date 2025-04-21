@@ -1,3 +1,5 @@
+import React from 'react';
+
 import AlertCircleFilled from '@/icons/alerts/AlertCircleFilled';
 import AlertCircleLine from '@/icons/alerts/AlertCircleLine';
 import AlertTriangleFilled from '@/icons/alerts/AlertTriangleFilled';
@@ -40,7 +42,6 @@ import XCircleLine from '@/icons/alerts/XCircleLine';
 import XClose from '@/icons/alerts/XClose';
 import XCloseThick from '@/icons/alerts/XCloseThick';
 import { Icon } from '@/icons/Icons.types';
-import React from 'react';
 
 const icons = {
   bellRinging: {

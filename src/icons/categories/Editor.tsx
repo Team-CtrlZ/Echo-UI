@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Clip from '@/icons/editor/Clip';
 import EditPencil from '@/icons/editor/EditPencil';
 import EditSquare from '@/icons/editor/EditSquare';
@@ -7,7 +9,6 @@ import LinkBroken from '@/icons/editor/LinkBroken';
 import ZoomIn from '@/icons/editor/ZoomIn';
 import ZoomOut from '@/icons/editor/ZoomOut';
 import { Icon } from '@/icons/Icons.types';
-import React from 'react';
 
 const icons = {
   edit: {

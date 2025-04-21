@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 
 const XCircleLine: React.FC<Icon> = ({ width, height, color }: Icon) => (
@@ -14,8 +15,8 @@ const XCircleLine: React.FC<Icon> = ({ width, height, color }: Icon) => (
       fill={color}
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M12 2.09998C6.53238 2.09998 2.1 6.53236 2.1 12C2.1 17.4676 6.53238 21.9 12 21.9C17.4676 21.9 21.9 17.4676 21.9 12C21.9 6.53236 17.4676 2.09998 12 2.09998ZM3.9 12C3.9 7.52647 7.52649 3.89998 12 3.89998C16.4735 3.89998 20.1 7.52647 20.1 12C20.1 16.4735 16.4735 20.1 12 20.1C7.52649 20.1 3.9 16.4735 3.9 12Z"
       fill={color}
     />

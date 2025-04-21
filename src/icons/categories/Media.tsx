@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 import CameraFilled from '@/icons/media/CameraFilled';
 import CameraLine from '@/icons/media/CameraLine';
@@ -14,7 +16,6 @@ import PlaySquareFilled from '@/icons/media/PlaySquareFilled';
 import PlaySquareLine from '@/icons/media/PlaySquareLine';
 import QrCode from '@/icons/media/QrCode';
 import Recording from '@/icons/media/Recording';
-import React from 'react';
 
 const icons = {
   image: {

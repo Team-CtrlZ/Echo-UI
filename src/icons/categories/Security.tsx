@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 import Lock from '@/icons/security/Lock';
 import Unlocked from '@/icons/security/Unlocked';
-import React from 'react';
 
 const icons = {
   lock: {

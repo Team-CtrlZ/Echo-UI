@@ -1,3 +1,5 @@
+import React from 'react';
+
 import MessageChatCircleFilled from '@/icons/communication/MessageChatCircleFilled';
 import MessageChatCircleLine from '@/icons/communication/MessageChatCircleLine';
 import MessageChatSquareFilled from '@/icons/communication/MessageChatSquareFilled';
@@ -23,7 +25,6 @@ import PhoneLine from '@/icons/communication/PhoneLine';
 import SendFilled from '@/icons/communication/SendFilled';
 import SendLine from '@/icons/communication/SendLine';
 import { Icon } from '@/icons/Icons.types';
-import React from 'react';
 
 const icons = {
   send: {

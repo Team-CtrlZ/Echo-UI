@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 
 const MinusCircleLine: React.FC<Icon> = ({ width, height, color }: Icon) => (
@@ -14,8 +15,8 @@ const MinusCircleLine: React.FC<Icon> = ({ width, height, color }: Icon) => (
       fill={color}
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M12.0001 2.09998C6.53247 2.09998 2.1001 6.53236 2.1001 12C2.1001 17.4676 6.53247 21.9 12.0001 21.9C17.4677 21.9 21.9001 17.4676 21.9001 12C21.9001 6.53236 17.4677 2.09998 12.0001 2.09998ZM3.9001 12C3.9001 7.52647 7.52659 3.89998 12.0001 3.89998C16.4736 3.89998 20.1001 7.52647 20.1001 12C20.1001 16.4735 16.4736 20.1 12.0001 20.1C7.52659 20.1 3.9001 16.4735 3.9001 12Z"
       fill={color}
     />

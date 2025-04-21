@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 import CrownFilled from '@/icons/shapes/CrownFilled';
 import CrownLine from '@/icons/shapes/CrownLine';
@@ -5,7 +7,6 @@ import GroupShareLight from '@/icons/shapes/GroupShareLight';
 import HeartFilled from '@/icons/shapes/HeartFilled';
 import HeartLine from '@/icons/shapes/HeartLine';
 import Stars from '@/icons/shapes/Stars';
-import React from 'react';
 
 const icons = {
   heart: {

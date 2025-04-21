@@ -1,3 +1,5 @@
+import React from 'react';
+
 import BarsArrowDown from '@/icons/general/BarkArrowDown';
 import BarsArrowUp from '@/icons/general/BarkArrowUp';
 import BookmarkFilled from '@/icons/general/BookmarkFilled';
@@ -27,7 +29,6 @@ import ShareLine from '@/icons/general/ShareLine';
 import TrashFilled from '@/icons/general/TrashFilled';
 import TrashLine from '@/icons/general/TrashLine';
 import { Icon } from '@/icons/Icons.types';
-import React from 'react';
 
 const icons = {
   home: {

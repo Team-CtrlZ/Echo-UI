@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Clipboard from '@/icons/files/Clipboard';
 import ClipboardCheck from '@/icons/files/ClipboardCheck';
 import FileAttachment from '@/icons/files/FileAttachment';
@@ -11,7 +13,6 @@ import FolderPlus from '@/icons/files/FolderPlus';
 import FollowUp from '@/icons/files/FollowUp';
 import Save from '@/icons/files/Save';
 import { Icon } from '@/icons/Icons.types';
-import React from 'react';
 
 const icons = {
   save: {

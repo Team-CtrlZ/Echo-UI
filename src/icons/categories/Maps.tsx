@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 import Mark from '@/icons/maps/Mark';
 import MarkerPin from '@/icons/maps/MarkerPin';
-import React from 'react';
 
 const icons = {
   mark: {

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 
 const MessageMultipleFilled: React.FC<Icon> = ({
@@ -14,8 +15,8 @@ const MessageMultipleFilled: React.FC<Icon> = ({
     fill="none"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18H18V10C18 5.58172 14.4183 2 10 2Z"
       fill={color}
     />

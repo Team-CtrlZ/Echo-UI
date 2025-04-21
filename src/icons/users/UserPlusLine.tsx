@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 
 const UserPlusLine: React.FC<Icon> = ({ width, height, color }: Icon) => (
@@ -10,8 +11,8 @@ const UserPlusLine: React.FC<Icon> = ({ width, height, color }: Icon) => (
     fill="none"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M9.77273 3.5C7.51338 3.5 5.68182 5.33156 5.68182 7.59091C5.68182 9.85026 7.51338 11.6818 9.77273 11.6818C12.0321 11.6818 13.8636 9.85026 13.8636 7.59091C13.8636 5.33156 12.0321 3.5 9.77273 3.5ZM7.5 7.59091C7.5 6.33572 8.51754 5.31818 9.77273 5.31818C11.0279 5.31818 12.0455 6.33572 12.0455 7.59091C12.0455 8.8461 11.0279 9.86364 9.77273 9.86364C8.51754 9.86364 7.5 8.8461 7.5 7.59091Z"
       fill={color}
     />

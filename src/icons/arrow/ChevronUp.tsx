@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 
 const ChevronUp: React.FC<Icon> = ({ width, height, color }: Icon) => (
@@ -10,8 +11,8 @@ const ChevronUp: React.FC<Icon> = ({ width, height, color }: Icon) => (
     fill="none"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M11.2929 7.54289C11.6834 7.15237 12.3166 7.15237 12.7071 7.54289L20.2071 15.0429C20.5976 15.4334 20.5976 16.0666 20.2071 16.4571C19.8166 16.8476 19.1834 16.8476 18.7929 16.4571L12 9.66421L5.20711 16.4571C4.81658 16.8476 4.18342 16.8476 3.79289 16.4571C3.40237 16.0666 3.40237 15.4334 3.79289 15.0429L11.2929 7.54289Z"
       fill={color}
     />

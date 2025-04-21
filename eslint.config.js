@@ -1,42 +1,142 @@
-import { defineConfig } from "eslint/config";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
-import js from "@eslint/js";
-import reactHooks from "eslint-plugin-react-hooks";
-import eslintPluginImport from "eslint-plugin-import";
-import prettierPlugin from "eslint-plugin-prettier";
-import prettierConfig from "eslint-config-prettier";
+// eslint.config.js
+import { defineConfig } from 'eslint/config';
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import globals from 'globals';
+import pluginImport from 'eslint-plugin-import';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import prettier from 'eslint-config-prettier';
 
 export default defineConfig([
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  prettierConfig,
-  { ignores: ["dist", "node_modules"] },
+  ...tseslint.configs.recommendedTypeChecked,
   {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      '.storybook/**',
+      'public/service-worker.js',
+      'vite.config.*',
+      '*.config.*',
+      '*.env.*',
+      '.env',
+      '.env.*',
+      'vitest.workspace.ts',
+      '**/*.d.ts'
+    ]
+  },
+  {
+    files: [
+      '**/*.config.js',
+      '**/*.config.ts',
+      '**/*.config.mjs',
+      '**/*.config.cjs',
+      'vite.config.ts',
+      'storybook/**/*.ts'
+    ],
     languageOptions: {
-      globals: globals.browser,
       parser: tseslint.parser,
       parserOptions: {
-        project: "./tsconfig.json"
-      },
-      ecmaVersion: 2020,
-      sourceType: "module"
-    },
-    plugins: {
-      import: eslintPluginImport,
-      prettier: prettierPlugin
+        project: './tsconfig.eslint.json'
+      }
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      prettier: "error",
-      "prettier/prettier": "error",
-      "@typescript-eslint/explicit-function-return-type": "error",
-      "no-constant-binary-expressions": "error",
-      "prefer-const": "error",
-      "no-multiple-empty-lines": ["error", { max: 1 }]
+      ...prettier.rules
+      // 필요에 따라 설정 파일에만 적용할 룰을 여기에 작성
     }
   },
-  pluginReact.configs.flat.recommended
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: './tsconfig.eslint.json'
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    },
+    plugins: {
+      import: pluginImport,
+      react: pluginReact,
+      'react-hooks': pluginReactHooks
+    },
+    rules: {
+      ...prettier.rules,
+      // React
+      'react/react-in-jsx-scope': 'off',
+      'react/jsx-no-useless-fragment': 'off',
+      'react/jsx-curly-brace-presence': 'off',
+      'react/no-array-index-key': 'off',
+      'react/jsx-boolean-value': 'off',
+      'react/require-default-props': 'off',
+      'react/button-has-type': 'off',
+      // React Hooks
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      // Import
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            ['parent', 'sibling'],
+            'index',
+            'type',
+            'object',
+            'unknown'
+          ],
+          pathGroups: [
+            {
+              pattern: 'react*',
+              group: 'external',
+              position: 'before'
+            }
+          ],
+          pathGroupsExcludedImportTypes: ['react'],
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true
+          },
+          'newlines-between': 'always'
+        }
+      ],
+      'import/prefer-default-export': 'off',
+      'import/no-extraneous-dependencies': 'off',
+      'import/no-cycle': 'off',
+      // General JS / TS rules
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
+      'default-case-last': 'off',
+      'no-nested-ternary': 'off',
+      'no-useless-return': 'off',
+      'no-alert': 'off',
+      'no-console': 'off',
+      'no-param-reassign': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/naming-convention': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'no-restricted-syntax': 'off',
+      'no-await-in-loop': 'off',
+      'no-restricted-globals': 'off',
+      'consistent-return': 'off',
+      'no-extra-boolean-cast': 'off',
+      'no-multiple-empty-lines': ['error', { max: 1 }]
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
+    }
+  }
 ]);

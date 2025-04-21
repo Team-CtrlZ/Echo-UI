@@ -1,5 +1,6 @@
-import { Icon } from '@/icons/Icons.types';
 import React from 'react';
+
+import { Icon } from '@/icons/Icons.types';
 
 const HomeFilled: React.FC<Icon> = ({ width, height, color }: Icon) => (
   <svg

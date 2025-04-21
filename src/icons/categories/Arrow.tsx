@@ -1,3 +1,5 @@
+import React from 'react';
+
 import ArrowDown from '@/icons/arrow/ArrowDown';
 import ArrowLeft from '@/icons/arrow/ArrowLeft';
 import ArrowRight from '@/icons/arrow/ArrowRight';
@@ -34,7 +36,6 @@ import Share from '@/icons/arrow/Share';
 import UploadCloudFilled from '@/icons/arrow/UploadCloudFilled';
 import UploadCloudLine from '@/icons/arrow/UploadCloudLine';
 import { Icon } from '@/icons/Icons.types';
-import React from 'react';
 
 const icons = {
   chevron: {

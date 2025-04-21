@@ -1,7 +1,8 @@
+import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 import MedicalCircle from '@/icons/medical/MedicalCircle';
 import MedicalSquare from '@/icons/medical/MedicalSquare';
-import React from 'react';
 
 const icons = {
   medicalCircle: {

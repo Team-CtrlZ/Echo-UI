@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 
 const PauseCircle: React.FC<Icon> = ({ width, height, color }: Icon) => (
@@ -10,8 +11,8 @@ const PauseCircle: React.FC<Icon> = ({ width, height, color }: Icon) => (
     fill="none"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM9.5 8C10.0523 8 10.5 8.44772 10.5 9V15C10.5 15.5523 10.0523 16 9.5 16C8.94772 16 8.5 15.5523 8.5 15V9C8.5 8.44772 8.94772 8 9.5 8ZM14.5 8C15.0523 8 15.5 8.44772 15.5 9V15C15.5 15.5523 15.0523 16 14.5 16C13.9477 16 13.5 15.5523 13.5 15V9C13.5 8.44772 13.9477 8 14.5 8Z"
       fill={color}
     />

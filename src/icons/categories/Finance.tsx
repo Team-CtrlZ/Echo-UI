@@ -1,9 +1,10 @@
-import CreditCardLine from '@/icons/finance/CreditCardLine';
+import React from 'react';
+
 import CreditCardAction from '@/icons/finance/CreditCardAction';
+import CreditCardLine from '@/icons/finance/CreditCardLine';
 import Tag from '@/icons/finance/Tag';
 import Tags from '@/icons/finance/Tags';
 import { Icon } from '@/icons/Icons.types';
-import React from 'react';
 
 const icons = {
   tag: {

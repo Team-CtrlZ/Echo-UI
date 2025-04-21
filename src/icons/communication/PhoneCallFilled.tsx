@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Icon } from '@/icons/Icons.types';
 
 const PhoneCallFilled: React.FC<Icon> = ({ width, height, color }: Icon) => (
