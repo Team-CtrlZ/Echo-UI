@@ -37,6 +37,6 @@ export const Label: Story = {
     size: 'md',
     fontWeight: 400,
     color: 'rgba(0, 0, 0, 0.85)',
-    children: 'Display Bold'
+    children: 'Label'
   }
 };

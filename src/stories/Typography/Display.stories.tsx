@@ -33,6 +33,6 @@ export const Display: Story = {
   args: {
     size: 'md',
     color: 'rgba(0, 0, 0, 0.85)',
-    children: 'Display Bold'
+    children: 'Display'
   }
 };

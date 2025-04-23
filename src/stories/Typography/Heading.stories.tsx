@@ -37,6 +37,6 @@ export const Heading: Story = {
     size: 'md',
     fontWeight: 400,
     color: 'rgba(0, 0, 0, 0.85)',
-    children: 'Display Bold'
+    children: 'Heading'
   }
 };

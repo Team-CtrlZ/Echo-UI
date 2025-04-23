@@ -33,6 +33,6 @@ export const Button: Story = {
   args: {
     size: 'md',
     color: 'rgba(0, 0, 0, 0.85)',
-    children: 'Button Semibold'
+    children: 'Button'
   }
 };
