@@ -47,7 +47,6 @@ const gap = {
 
 export const StyledButton = styled.button<StyledButtonProps>`
   display: inline-flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: ${(props) => padding[props.$size][props.$paddingType]};
@@ -111,8 +110,11 @@ export const StyledButton = styled.button<StyledButtonProps>`
     }
   }};
 
+  border: ${({ $theme, theme }) =>
+    $theme === 'white'
+      ? `1px solid ${theme.colors.theme.subBrand['200']}`
+      : 'none'};
   border-radius: 8px;
-  border: none;
   background: ${({ $theme, theme }) => {
     switch ($theme) {
       case 'primary':
@@ -127,6 +129,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
   }};
 
   &:hover {
+    border: ${({ $theme, theme }) =>
+      $theme === 'white'
+        ? `1px solid ${theme.colors.theme.subBrand['200']}`
+        : 'none'};
     background: ${({ $theme, theme }) => {
       switch ($theme) {
         case 'primary':
@@ -141,6 +147,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
     }};
   }
   &:active {
+    border: ${({ $theme, theme }) =>
+      $theme === 'white'
+        ? `1px solid ${theme.colors.theme.subBrand['300']}`
+        : 'none'};
     background: ${({ $theme, theme }) => {
       switch ($theme) {
         case 'primary':
@@ -158,5 +168,9 @@ export const StyledButton = styled.button<StyledButtonProps>`
     cursor: not-allowed;
     background: ${({ theme }) => theme.colors.theme.subBrand['50']};
     color: ${({ theme }) => theme.colors.components.light.text.disabled};
+    border: ${({ $theme, theme }) =>
+      $theme === 'white'
+        ? `1px solid ${theme.colors.theme.subBrand['200']}`
+        : 'none'};
   }
 `;
