@@ -74,7 +74,7 @@ const Dot = styled.div<{ $size: ButtonSize; $theme: ButtonTheme }>`
 `;
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Components',
   component: Button,
   parameters: {
     layout: 'centered'
@@ -108,7 +108,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const ButtonComponent: Story = {
   args: {
     theme: 'primary',
     size: 'lg',
