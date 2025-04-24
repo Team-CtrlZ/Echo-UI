@@ -7,7 +7,7 @@ export type ButtonTheme = Extract<
   keyof SemanticColors,
   'primary' | 'secondary' | 'white' | 'critical'
 >;
-export type PaddingType ='default' | 'iconOnly' | 'iconLeft' | 'iconRight' | 'iconBoth' | 'loading';
+export type PaddingType ='default' | 'iconOnly' | 'leadingIcon' | 'trailingIcon' | 'iconBoth' | 'loading';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;

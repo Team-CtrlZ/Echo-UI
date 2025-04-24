@@ -89,8 +89,8 @@ const meta: Meta<typeof Button> = {
       options: [
         'default',
         'iconOnly',
-        'iconLeft',
-        'iconRight',
+        'leadingIcon',
+        'trailingIcon',
         'iconBoth',
         'loading'
       ]
@@ -142,7 +142,7 @@ export const ButtonComponent: Story = {
                   />
                 </svg>
               );
-            case 'iconLeft':
+            case 'leadingIcon':
               return (
                 <>
                   <svg
@@ -162,7 +162,7 @@ export const ButtonComponent: Story = {
                   <span>Button</span>
                 </>
               );
-            case 'iconRight':
+            case 'trailingIcon':
               return (
                 <>
                   <span>Button</span>
