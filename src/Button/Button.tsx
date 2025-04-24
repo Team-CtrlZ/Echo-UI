@@ -1,11 +1,21 @@
-import React from "react";
+import { JSX } from 'react';
 
-import { ButtonProps } from "@/Button/Button.types";
+import { StyledButton } from '@/Button/Button.styles';
+import { ButtonProps } from '@/Button/Button.types';
+import { ThemeProvider } from '@/theme';
 
-const Button: React.FC<ButtonProps> = props => {
-  const { children, ...rest } = props;
+const Button = (props: ButtonProps): JSX.Element => {
+  const { children, isIconOnly, size, theme,...rest } = props;
 
-  return <button {...rest}>{children}</button>;
+  return (
+    <>
+      <ThemeProvider theme={{}}>
+        <StyledButton $isIconOnly={isIconOnly} $size={size} $theme={theme} {...rest}>
+          {children}
+        </StyledButton>
+      </ThemeProvider>
+    </>
+  );
 };
 
 export default Button;
