@@ -6,19 +6,35 @@ import { TypographyType } from '@/theme';
 const padding = {
   sm: {
     default: '8px 12px',
-    iconOnly: '8px'
+    loading: '8px 12px',
+    iconOnly: '8px',
+    iconBoth: '8px',
+    iconLeft: '8px 12px 8px 8px',
+    iconRight: '8px 8px 8px 12px'
   },
   md: {
     default: '10px 14px',
-    iconOnly: '10px'
+    loading: '10px 14px',
+    iconOnly: '10px',
+    iconBoth: '10px',
+    iconLeft: '10px 14px 10px 10px',
+    iconRight: '10px 10px 10px 14px'
   },
   lg: {
     default: '10px 16px',
-    iconOnly: '10px'
+    loading: '12px 16px',
+    iconOnly: '12px',
+    iconBoth: '10px 12px',
+    iconLeft: '10px 16px 10px 12px',
+    iconRight: '10px 12px 10px 16px'
   },
   xl: {
     default: '12px 24px',
-    iconOnly: '12px'
+    loading: '12px 24px',
+    iconOnly: '12px',
+    iconBoth: '12px 16px',
+    iconLeft: '12px 24px 12px 16px',
+    iconRight: '12px 16px 12px 24px'
   }
 };
 
@@ -34,8 +50,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: ${(props) =>
-    padding[props.$size][props.$isIconOnly ? 'iconOnly' : 'default']};
+  padding: ${(props) => padding[props.$size][props.$paddingType]};
   gap: ${(props) => gap[props.$size]};
   cursor: pointer;
 
