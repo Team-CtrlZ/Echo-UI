@@ -17,7 +17,7 @@ const meta: Meta<typeof Typography.Heading> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['xsm', 'sm', 'md', 'lg', 'xl', '2xl']
+      options: ['2xl', 'xl', 'lg', 'md', 'sm', 'xsm']
     },
     color: {
       control: 'color'

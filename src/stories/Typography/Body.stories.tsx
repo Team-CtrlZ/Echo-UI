@@ -17,7 +17,7 @@ const meta: Meta<typeof Typography.Body> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['xsm', 'sm', 'md', 'lg']
+      options: ['lg', 'md', 'sm', 'xsm']
     },
     color: {
       control: 'color'

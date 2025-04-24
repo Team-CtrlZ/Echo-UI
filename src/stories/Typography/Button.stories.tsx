@@ -17,7 +17,7 @@ const meta: Meta<typeof Typography.Button> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg']
+      options: ['lg', 'md', 'sm']
     },
     color: {
       control: 'color'
