@@ -27,10 +27,44 @@ jobs:
       - name: Deploy to Chromatic
         run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes
         env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          CHROMATIC_PROJECT_TOKEN: ≈
 
       - name: Notify Discord
         run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%s)
+          BUILD_NUMBER=${{ github.run_number }}
+          BRANCH_NAME=${GITHUB_REF##*/}
+          STORYBOOK_URL="https://www.chromatic.com/builds?appId=67fd2a40cad99feac1d5563d"
+
           curl -H "Content-Type: application/json" \
-            -d "{\"content\":\"🎉 Storybook 배포 완료! 👉 https://www.chromatic.com/builds?appId=67fd2a40cad99feac1d5563d\"}" \
+            -d "{
+              \"embeds\": [
+                {
+                  \"title\": \"📘 Storybook 배포 완료\",
+                  \"color\": 3447003,
+                  \"fields\": [
+                    {
+                      \"name\": \"🔢 Build Number\",
+                      \"value\": \"#${BUILD_NUMBER}\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"🌿 Branch\",
+                      \"value\": \"${BRANCH_NAME}\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"💬 Commit Message\",
+                      \"value\": \"${COMMIT_MESSAGE}\",
+                      \"inline\": true
+                    },
+                    {
+                      \"name\": \"🔗 URL\",
+                      \"value\": \"[스토리북 열기](${STORYBOOK_URL})\"
+                    }
+                  ],
+                  \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"
+                }
+              ]
+            }" \
             ${{ secrets.DISCORD_WEBHOOK_URL }}
