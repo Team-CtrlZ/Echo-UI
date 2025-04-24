@@ -7,16 +7,17 @@ export type ButtonTheme = Extract<
   keyof SemanticColors,
   'primary' | 'secondary' | 'white' | 'critical'
 >;
+export type PaddingType ='default' | 'iconOnly' | 'iconLeft' | 'iconRight' | 'iconBoth' | 'loading';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  isIconOnly: boolean;
+  paddingType: PaddingType;
   size: ButtonSize;
   theme: ButtonTheme;
 }
 
 export interface StyledButtonProps {
-  $isIconOnly: boolean;
+  $paddingType: PaddingType;
   $size: ButtonSize;
   $theme: ButtonTheme;
 }
