@@ -46,17 +46,17 @@ jobs:
                     {
                       \"name\": \"🔢 Build Number\",
                       \"value\": \"#${BUILD_NUMBER}\",
-                      \"inline\": true
+                      \"inline\": false
                     },
                     {
                       \"name\": \"🌿 Branch\",
                       \"value\": \"${BRANCH_NAME}\",
-                      \"inline\": true
+                      \"inline\": false
                     },
                     {
                       \"name\": \"💬 Commit Message\",
                       \"value\": \"${COMMIT_MESSAGE}\",
-                      \"inline\": true
+                      \"inline\": false
                     },
                     {
                       \"name\": \"🔗 URL\",
