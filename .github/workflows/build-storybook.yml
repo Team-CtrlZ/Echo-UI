@@ -66,4 +66,4 @@ jobs:
                 }
               ]
             }" \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
+            ${{ secrets.DISCORD_BUILD_WEBHOOK_URL }}
