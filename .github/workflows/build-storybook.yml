@@ -26,7 +26,7 @@ jobs:
       - name: Deploy to Chromatic
         run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes
         env:
-          CHROMATIC_PROJECT_TOKEN: ≈
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
       - name: Notify Discord
         run: |
