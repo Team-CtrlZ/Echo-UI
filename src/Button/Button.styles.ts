@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { StyledButtonProps } from '@/Button/Button.types';
+import { PaddingValues, StyledButtonProps } from '@/Button/Button.types';
 import { TypographyType } from '@/theme';
 
-const padding = {
+const padding: PaddingValues = {
   sm: {
     default: '8px 12px',
     loading: '8px 12px',
