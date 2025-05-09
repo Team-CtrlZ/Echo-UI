@@ -39,26 +39,48 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Notify Discord
+        continue-on-error: true
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           DISCORD_REVIEW_WEBHOOK_URL: ${{ secrets.DISCORD_REVIEW_WEBHOOK_URL }}
         run: |
           PR_TITLE="PR 테스트"
-          echo "✅ PR_TITLE=$PR_TITLE"
           PR_AUTHOR="5xJIN"
-          echo "✅ PR_AUTHOR=$PR_AUTHOR"
           PR_URL="https://github.com/Team-CtrlZ/Echo-UI/pull/3"
+          
+          echo "✅ PR_TITLE=$PR_TITLE"
+          echo "✅ PR_AUTHOR=$PR_AUTHOR"
           echo "✅ PR_URL=$PR_URL"
           
-          OUTPUT=$(npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes)
-          echo "✅ OUTPUT=$OUTPUT"
-          BUILD_URL=$(echo "$OUTPUT" | grep -o 'https://www.chromatic.com/build?appId=[^ ]*')
-          echo "✅ BUILD_URL=$BUILD_URL"
+          npx chromatic \
+            --project-token=$CHROMATIC_PROJECT_TOKEN \
+            --branch=$GITHUB_HEAD_REF \
+            --commit=$GITHUB_SHA \
+            --exit-once-uploaded \
+            --exit-zero-on-changes \
+            --json > chromatic-output.json 2>&1
+          
+          echo "✅ 🔍 Raw output ↓"
+          cat chromatic-output.json
+          
+          BUILD_URL=$(tail -n 100 chromatic-output.json | jq -r '.build.webUrl' 2>/dev/null)
+
+          if [ -z "$BUILD_URL" ]; then
+          echo "ℹ️ Falling back to grep for BUILD_URL"
+          BUILD_URL=$(grep -o 'https://www.chromatic.com/build?appId=[^ ]*' chromatic-output.json | head -n 1)
+          fi
           TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          
+          echo "✅ BUILD_URL=$BUILD_URL"
           echo "✅ TIMESTAMP=$TIMESTAMP"
           
           echo "✅ CHROMATIC_PROJECT_TOKEN=$CHROMATIC_PROJECT_TOKEN"
           echo "✅ DISCORD_REVIEW_WEBHOOK_URL=$DISCORD_REVIEW_WEBHOOK_URL"
+          
+          if [ -z "$BUILD_URL" ]; then
+            echo "❌ BUILD_URL is empty. Skipping Discord notification."
+            exit 0
+          fi
           
           jq --version || echo "❌ jq not installed"
           
@@ -76,8 +98,8 @@ jobs:
                   fields: [
                     { name: "🔗 리뷰 링크", value: "[Chromatic 리뷰 보기](\($buildUrl))" },
                     { name: "📌 PR 제목", value: $prTitle },
-                    { name: "🙋 작성자", value: $prAuthor, inline: true },
-                    { name: "🔁 PR 링크", value: "[\($prUrl)](\($prUrl))", inline: true }
+                    { name: "🙋 작성자", value: $prAuthor },
+                    { name: "🔁 PR 링크", value: "[\($prUrl)](\($prUrl))" }
                   ],
                   timestamp: $timestamp
                 }
@@ -86,7 +108,25 @@ jobs:
           
           ls -la payload.json || echo "❌ payload.json not found"
           
-          cat payload.json || echo "❌ cannot cat payload.json"
+          echo "✅ 🔍 payload preview ↓"
+          cat payload.json || echo "❌ payload.json not found"
           
+          echo "✅ curl about to run"
           curl -v -H "Content-Type: application/json" \
-            -d @payload.json "$DISCORD_REVIEW_WEBHOOK_URL" > curl-response.log 2>&1 || echo "curl failed"
+            -d @payload.json "$DISCORD_REVIEW_WEBHOOK_URL" > curl-response.log 2>&1
+          CURL_EXIT_CODE=$?
+          echo "✅ curl finished with exit code $CURL_EXIT_CODE"
+  
+          CURL_EXIT_CODE=$?
+          echo "✅ curl finished with exit code $CURL_EXIT_CODE"
+          
+          echo "✅ 🔍 curl response ↓"
+          if [ -f curl-response.log ]; then
+            echo "----- BEGIN curl-response.log -----"
+            cat curl-response.log
+            echo "----- END curl-response.log -----"
+          else
+            echo "❌ curl-response.log not found"
+          fi
+          
+          exit 0
