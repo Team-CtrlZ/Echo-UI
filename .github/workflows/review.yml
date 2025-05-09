@@ -35,46 +35,58 @@ jobs:
           BUILD_URL=$(echo "$OUTPUT" | grep -o 'https://www.chromatic.com/build?appId=[^ ]*')
           echo "BUILD_URL=$BUILD_URL" >> $GITHUB_ENV
 
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
       - name: Notify Discord
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           DISCORD_REVIEW_WEBHOOK_URL: ${{ secrets.DISCORD_REVIEW_WEBHOOK_URL }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
+          PR_TITLE="PR 테스트"
+          echo "✅ PR_TITLE=$PR_TITLE"
+          PR_AUTHOR="5xJIN"
+          echo "✅ PR_AUTHOR=$PR_AUTHOR"
+          PR_URL="https://github.com/Team-CtrlZ/Echo-UI/pull/3"
+          echo "✅ PR_URL=$PR_URL"
+          
           OUTPUT=$(npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes)
+          echo "✅ OUTPUT=$OUTPUT"
           BUILD_URL=$(echo "$OUTPUT" | grep -o 'https://www.chromatic.com/build?appId=[^ ]*')
-      
+          echo "✅ BUILD_URL=$BUILD_URL"
+          TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          echo "✅ TIMESTAMP=$TIMESTAMP"
+          
+          echo "✅ CHROMATIC_PROJECT_TOKEN=$CHROMATIC_PROJECT_TOKEN"
+          echo "✅ DISCORD_REVIEW_WEBHOOK_URL=$DISCORD_REVIEW_WEBHOOK_URL"
+          
+          jq --version || echo "❌ jq not installed"
+          
+          jq -n \
+          --arg buildUrl "$BUILD_URL" \
+          --arg prTitle "$PR_TITLE" \
+          --arg prAuthor "$PR_AUTHOR" \
+          --arg prUrl "$PR_URL" \
+          --arg timestamp "$TIMESTAMP" \
+          '{
+              embeds: [
+                {
+                  title: "📘 Storybook 리뷰가 생성되었습니다!",
+                  color: 3447003,
+                  fields: [
+                    { name: "🔗 리뷰 링크", value: "[Chromatic 리뷰 보기](\($buildUrl))" },
+                    { name: "📌 PR 제목", value: $prTitle },
+                    { name: "🙋 작성자", value: $prAuthor, inline: true },
+                    { name: "🔁 PR 링크", value: "[\($prUrl)](\($prUrl))", inline: true }
+                  ],
+                  timestamp: $timestamp
+                }
+              ]
+            }' > payload.json || echo "❌ jq failed"
+          
+          ls -la payload.json || echo "❌ payload.json not found"
+          
+          cat payload.json || echo "❌ cannot cat payload.json"
+          
           curl -v -H "Content-Type: application/json" \
-            -d @- "$DISCORD_REVIEW_WEBHOOK_URL" <<EOF
-          {
-            "embeds": [
-              {
-                "title": "📘 Storybook 리뷰가 생성되었습니다!",
-                "color": 3447003,
-                "fields": [
-                  {
-                    "name": "🔗 리뷰 링크",
-                    "value": "[Chromatic 리뷰 보기]($BUILD_URL)"
-                  },
-                  {
-                    "name": "📌 PR 제목",
-                    "value": "$PR_TITLE"
-                  },
-                  {
-                    "name": "🙋 작성자",
-                    "value": "$PR_AUTHOR",
-                    "inline": true
-                  },
-                  {
-                    "name": "🔁 PR 링크",
-                    "value": "[$PR_URL]($PR_URL)",
-                    "inline": true
-                  }
-                ],
-                "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-              }
-            ]
-          }
-          EOF
+            -d @payload.json "$DISCORD_REVIEW_WEBHOOK_URL" > curl-response.log 2>&1 || echo "curl failed"
