@@ -1,0 +1,80 @@
+name: Review
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Chromatic and extract review URL
+        id: chromatic
+        run: |
+          OUTPUT=$(npx chromatic \
+                    --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} \
+                    --branch=$GITHUB_HEAD_REF \
+                    --commit=$GITHUB_SHA \
+                    --exit-zero-on-changes)
+          echo "$OUTPUT" > chromatic-output.txt
+      
+          # Build URL 파싱
+          BUILD_URL=$(echo "$OUTPUT" | grep -o 'https://www.chromatic.com/build?appId=[^ ]*')
+          echo "BUILD_URL=$BUILD_URL" >> $GITHUB_ENV
+
+      - name: Notify Discord
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          DISCORD_REVIEW_WEBHOOK_URL: ${{ secrets.DISCORD_REVIEW_WEBHOOK_URL }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          OUTPUT=$(npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes)
+          BUILD_URL=$(echo "$OUTPUT" | grep -o 'https://www.chromatic.com/build?appId=[^ ]*')
+      
+          curl -v -H "Content-Type: application/json" \
+            -d @- "$DISCORD_REVIEW_WEBHOOK_URL" <<EOF
+          {
+            "embeds": [
+              {
+                "title": "📘 Storybook 리뷰가 생성되었습니다!",
+                "color": 3447003,
+                "fields": [
+                  {
+                    "name": "🔗 리뷰 링크",
+                    "value": "[Chromatic 리뷰 보기]($BUILD_URL)"
+                  },
+                  {
+                    "name": "📌 PR 제목",
+                    "value": "$PR_TITLE"
+                  },
+                  {
+                    "name": "🙋 작성자",
+                    "value": "$PR_AUTHOR",
+                    "inline": true
+                  },
+                  {
+                    "name": "🔁 PR 링크",
+                    "value": "[$PR_URL]($PR_URL)",
+                    "inline": true
+                  }
+                ],
+                "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+              }
+            ]
+          }
+          EOF
