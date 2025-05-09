@@ -78,11 +78,11 @@ export const StyledButton = styled.button<StyledButtonProps>`
           .lineHeight;
       case 'md':
       default:
-        return (theme.typography.components.button.sm as TypographyType)
+        return (theme.typography.components.button.md as TypographyType)
           .lineHeight;
       case 'lg':
       case 'xl':
-        return (theme.typography.components.button.md as TypographyType)
+        return (theme.typography.components.button.lg as TypographyType)
           .lineHeight;
     }
   }};
