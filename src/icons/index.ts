@@ -13,8 +13,9 @@ import { Security } from '@/icons/categories/Security';
 import { Shapes } from '@/icons/categories/Shapes';
 import { Time } from '@/icons/categories/Time';
 import { Users } from '@/icons/categories/Users';
+import { IconType } from '@/icons/Icons.types';
 
-export const Icon = {
+export const Icon: IconType = {
   Alerts,
   Arrow,
   Communication,
