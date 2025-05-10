@@ -38,7 +38,6 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Get PR Info
-        if: github.event_name == 'pull_request'
         run: |
           PR_TITLE=$(jq -r .pull_request.title < "$GITHUB_EVENT_PATH")
           PR_AUTHOR=$(jq -r .pull_request.user.login < "$GITHUB_EVENT_PATH")
