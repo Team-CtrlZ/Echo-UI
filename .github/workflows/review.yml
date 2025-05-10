@@ -4,8 +4,7 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
-
+      - synchronizeㄹ
 
 jobs:
   chromatic:
@@ -38,15 +37,25 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
+      - name: Get PR Info
+        run: |
+          PR_TITLE=$(jq -r .pull_request.title < "$GITHUB_EVENT_PATH")
+          PR_AUTHOR=$(jq -r .pull_request.user.login < "$GITHUB_EVENT_PATH")
+          PR_URL=$(jq -r .pull_request.html_url < "$GITHUB_EVENT_PATH")
+
+          echo "PR_TITLE=$PR_TITLE" >> $GITHUB_ENV
+          echo "PR_AUTHOR=$PR_AUTHOR" >> $GITHUB_ENV
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
+
       - name: Notify Discord
         continue-on-error: true
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           DISCORD_REVIEW_WEBHOOK_URL: ${{ secrets.DISCORD_REVIEW_WEBHOOK_URL }}
         run: |
-          PR_TITLE="PR 테스트"
-          PR_AUTHOR="5xJIN"
-          PR_URL="https://github.com/Team-CtrlZ/Echo-UI/pull/3"
+          PR_TITLE=$(jq -r .pull_request.title < "$GITHUB_EVENT_PATH")
+          PR_AUTHOR=$(jq -r .pull_request.user.login < "$GITHUB_EVENT_PATH")
+          PR_URL=$(jq -r .pull_request.html_url < "$GITHUB_EVENT_PATH")
           
           echo "✅ PR_TITLE=$PR_TITLE"
           echo "✅ PR_AUTHOR=$PR_AUTHOR"
@@ -62,13 +71,20 @@ jobs:
           
           echo "✅ 🔍 Raw output ↓"
           cat chromatic-output.json
+          echo "✅ 🔍 Raw end"
           
-          BUILD_URL=$(tail -n 100 chromatic-output.json | jq -r '.build.webUrl' 2>/dev/null)
-
           if [ -z "$BUILD_URL" ]; then
-          echo "ℹ️ Falling back to grep for BUILD_URL"
-          BUILD_URL=$(grep -o 'https://www.chromatic.com/build?appId=[^ ]*' chromatic-output.json | head -n 1)
+            echo "ℹ️ Falling back to grep for BUILD_URL"
+            BUILD_URL=$(grep -o 'https://www.chromatic.com/build?appId=[^"]*' chromatic-output.json | head -n 1)
           fi
+          
+          if [ -z "$BUILD_URL" ]; then
+            echo "❌ BUILD_URL is empty. Full chromatic-output.json ↓"
+            cat chromatic-output.json
+            echo "❌ Skipping Discord notification."
+            exit 0
+          fi
+  
           TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           
           echo "✅ BUILD_URL=$BUILD_URL"
@@ -114,6 +130,8 @@ jobs:
           echo "✅ curl about to run"
           curl -v -H "Content-Type: application/json" \
             -d @payload.json "$DISCORD_REVIEW_WEBHOOK_URL" > curl-response.log 2>&1
+          echo "✅ 🔍 curl response ↓"
+          cat curl-response.log || echo "❌ curl-response.log not found"
           CURL_EXIT_CODE=$?
           echo "✅ curl finished with exit code $CURL_EXIT_CODE"
   
