@@ -15,14 +15,29 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./theme": {
-      "import": "./dist/theme/index.js"
+      "import": "./dist/theme/index.js",
+      "types":"./dist/theme/index.d.ts"
     },
-    "./Button": "./dist/Button",
-    "./Icon": "./dist/icons/index.js",
-    "./Typography": "./dist/Typography/index.js"
+    "./Button": {
+      "import": "./dist/Button/index.js",
+      "types": "./dist/Button.index.d.ts"
+    },
+    "./Icon": {
+      "import": "./dist/icons/index.js",
+      "types": "./dist/icons/index.d.ts"
+    },
+    "./Typography": {
+      "import": "./dist/Typography/index.js",
+      "types": "./dist/Typography/index.d.ts"
+    },
+    "./TextLink": {
+      "import": "./dist/TextLink/index.js",
+      "types": "./dist/TextLink/index.d.ts"
+    }
   },
   "dependencies": {
     "react": "^19.0.0",
