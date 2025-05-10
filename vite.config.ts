@@ -27,7 +27,7 @@ export default defineConfig({
       external: ["react", "react-dom", "styled-components"],
       input: {
         main: path.resolve(__dirname, "./src/index.tsx"),
-        styles: path.resolve(__dirname, "./src/styles/index.css")
+        styles: path.resolve(__dirname, "./src/index.css")
       },
       output: [
         {

@@ -1,9 +1,12 @@
-import { deepMerge } from "@/utils/merge";
-import React from "react";
-import { ThemeProvider as StyledProvider } from "styled-components";
-import { Theme } from "./Theme.types";
-import { defaultTheme } from "./defaultTheme";
-import { GlobalStyle } from "./GlobalStyle";
+import React from 'react';
+
+import { ThemeProvider as StyledProvider } from 'styled-components';
+
+import { defaultTheme } from './defaultTheme';
+import { GlobalStyle } from './GlobalStyle';
+import { Theme } from './Theme.types';
+
+import { deepMerge } from '@/utils/merge';
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -14,8 +17,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
   theme = {}
 }) => {
-  const mergedTheme = deepMerge(defaultTheme, theme);
-
+   
+  const mergedTheme= deepMerge(defaultTheme, theme);
+   
   return (
     <StyledProvider theme={mergedTheme}>
       <GlobalStyle fontFamily={mergedTheme.fontFamily} />

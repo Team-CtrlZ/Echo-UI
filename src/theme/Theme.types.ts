@@ -197,6 +197,7 @@ export interface Theme {
   fontFamily: string;
   colors: {
     tokens: ColorTokens;
+    theme: ThemeColors;
     semantic: SemanticThemeColor;
     components: ComponentColors;
   };

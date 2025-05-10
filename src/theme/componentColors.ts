@@ -1,11 +1,12 @@
-import { semanticColors } from '@/theme/semanticColors';
-import { themeColors } from '@/theme/ThemeColors';
 import {
   BackgroundColors,
   BorderColors,
   ComponentColors,
   TextColors
 } from './Theme.types';
+
+import { semanticColors } from '@/theme/semanticColors';
+import { themeColors } from '@/theme/ThemeColors';
 
 const textLightColors: TextColors = {
   default: semanticColors.light.alpha.black['85'],

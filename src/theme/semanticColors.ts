@@ -1,10 +1,11 @@
-import { themeColors } from '@/theme/ThemeColors';
 import {
   AlphaScale,
   ColorState,
   ColorVariant,
   SemanticThemeColor
 } from './Theme.types';
+
+import { themeColors } from '@/theme/ThemeColors';
 
 const primaryLightColors: ColorVariant = {
   light: {
