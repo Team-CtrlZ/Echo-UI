@@ -41,16 +41,16 @@ export const StyledAnchor = styled.a<StyledTextLinkProps>`
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: ${({ $size, theme }) =>
     $size === 'sm'
-      ? theme.typography.semantic.body.xsm!.fontSize
+      ? theme.typography.components.label.xsm!.fontSize
       : $size === 'md'
         ? theme.typography.components.label.sm!.fontSize
-        : theme.typography.components.label.lg!.fontSize};
+        : theme.typography.components.label.md!.fontSize};
   line-height: ${({ $size, theme }) =>
     $size === 'sm'
-      ? theme.typography.semantic.body.xsm!.lineHeight
+      ? theme.typography.components.label.xsm!.fontSize
       : $size === 'md'
         ? theme.typography.components.label.sm!.lineHeight
-        : theme.typography.components.label.lg!.lineHeight};
+        : theme.typography.components.label.md!.lineHeight};
 
   &:hover {
     text-decoration: none;
