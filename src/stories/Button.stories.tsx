@@ -74,7 +74,7 @@ const Dot = styled.div<{ $size: ButtonSize; $theme: ButtonTheme }>`
 `;
 
 const meta: Meta<typeof Button> = {
-  title: 'Components',
+  title: 'Button',
   component: Button,
   parameters: {
     layout: 'centered'
@@ -117,7 +117,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const ButtonComponent: Story = {
+export const Example: Story = {
   args: {
     theme: 'primary',
     size: 'lg',
@@ -139,8 +139,8 @@ export const ButtonComponent: Story = {
               return (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
-                  height={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
+                  width={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
+                  height={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
                   viewBox="0 0 20 20"
                   fill="none"
                 >
@@ -157,8 +157,8 @@ export const ButtonComponent: Story = {
                 <>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
-                    height={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
+                    width={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
+                    height={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
                     viewBox="0 0 20 20"
                     fill="none"
                   >
@@ -178,8 +178,8 @@ export const ButtonComponent: Story = {
                   <span>Button</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
-                    height={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
+                    width={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
+                    height={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
                     viewBox="0 0 20 20"
                     fill="none"
                   >
@@ -197,8 +197,8 @@ export const ButtonComponent: Story = {
                 <>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
-                    height={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
+                    width={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
+                    height={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
                     viewBox="0 0 20 20"
                     fill="none"
                   >
@@ -212,8 +212,8 @@ export const ButtonComponent: Story = {
                   <span>Button</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
-                    height={size === 'sm' ? '16' :size==='xl' ? '24':'20'}
+                    width={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
+                    height={size === 'sm' ? '16' : size === 'xl' ? '24' : '20'}
                     viewBox="0 0 20 20"
                     fill="none"
                   >
