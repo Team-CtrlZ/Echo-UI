@@ -117,6 +117,7 @@ export default defineConfig([
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/no-redundant-type-constituents': 'off',
       'default-case-last': 'off',
       'no-nested-ternary': 'off',
       'no-useless-return': 'off',

@@ -1,3 +1,4 @@
+import { themeColors } from '@/theme/ThemeColors';
 import { componentColors } from './componentColors';
 import { semanticColors } from './semanticColors';
 import { Theme } from './Theme.types';
@@ -13,6 +14,7 @@ export const defaultTheme: Theme = {
   colors: {
     tokens: colorTokens,
     semantic: semanticColors,
+    theme: themeColors,
     components: componentColors
   },
   typography: {

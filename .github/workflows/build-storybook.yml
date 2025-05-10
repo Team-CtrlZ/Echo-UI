@@ -6,9 +6,13 @@ on:
       - 'feature/**'
       - 'bugfix/**'
       - 'hotfix/**'
+  pull_request:
+    branches-ignore:
+      - '**'
 
 jobs:
   deploy:
+    if: github.event.pull_request == null
     runs-on: ubuntu-latest
 
     steps:
