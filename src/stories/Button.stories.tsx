@@ -89,8 +89,8 @@ const meta: Meta<typeof Button> = {
       options: [
         'default',
         'iconOnly',
-        'leadingIcon',
-        'trailingIcon',
+        'iconLeft',
+        'iconRight',
         'iconBoth',
         'loading'
       ]
@@ -100,7 +100,16 @@ const meta: Meta<typeof Button> = {
     },
     theme: {
       control: 'select',
-      options: ['primary', 'secondary', 'white', 'critical']
+      options: [
+        'primary',
+        'secondary',
+        'critical',
+        'secondaryText',
+        'neutralOutline'
+      ]
+    },
+    isCompact: {
+      control: 'boolean'
     }
   }
 };
@@ -114,6 +123,7 @@ export const ButtonComponent: Story = {
     size: 'lg',
     paddingType: 'default',
     disabled: false,
+    isCompact: false,
     children: <p>Button</p>
   },
   render: (args) => {
@@ -142,7 +152,7 @@ export const ButtonComponent: Story = {
                   />
                 </svg>
               );
-            case 'leadingIcon':
+            case 'iconLeft':
               return (
                 <>
                   <svg
@@ -162,7 +172,7 @@ export const ButtonComponent: Story = {
                   <span>Button</span>
                 </>
               );
-            case 'trailingIcon':
+            case 'iconRight':
               return (
                 <>
                   <span>Button</span>

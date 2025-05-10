@@ -6,7 +6,6 @@ on:
       - opened
       - synchronize
 
-
 jobs:
   chromatic:
     runs-on: ubuntu-latest
@@ -37,6 +36,17 @@ jobs:
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Get PR Info
+        if: github.event_name == 'pull_request'
+        run: |
+          PR_TITLE=$(jq -r .pull_request.title < "$GITHUB_EVENT_PATH")
+          PR_AUTHOR=$(jq -r .pull_request.user.login < "$GITHUB_EVENT_PATH")
+          PR_URL=$(jq -r .pull_request.html_url < "$GITHUB_EVENT_PATH")
+
+          echo "PR_TITLE=$PR_TITLE" >> $GITHUB_ENV
+          echo "PR_AUTHOR=$PR_AUTHOR" >> $GITHUB_ENV
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
 
       - name: Notify Discord
         continue-on-error: true

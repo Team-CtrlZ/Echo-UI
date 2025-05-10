@@ -3,10 +3,10 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { SemanticColors } from '@/theme';
 
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ButtonTheme = Extract<
-  keyof SemanticColors,
-  'primary' | 'secondary' | 'white' | 'critical'
->;
+export type ButtonTheme =
+  | Extract<keyof SemanticColors, 'primary' | 'secondary' | 'critical'>
+  | 'secondaryText'
+  | 'neutralOutline';
 export type PaddingType =
   | 'default'
   | 'iconOnly'
@@ -20,12 +20,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   paddingType: PaddingType;
   size: ButtonSize;
   theme: ButtonTheme;
+  isCompact?: boolean
 }
 
 export interface StyledButtonProps {
   $paddingType: PaddingType;
   $size: ButtonSize;
   $theme: ButtonTheme;
+  $isCompact: boolean
 }
 
 export type PaddingValues = {
