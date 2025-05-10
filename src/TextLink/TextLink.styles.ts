@@ -47,7 +47,7 @@ export const StyledAnchor = styled.a<StyledTextLinkProps>`
         : theme.typography.components.label.md!.fontSize};
   line-height: ${({ $size, theme }) =>
     $size === 'sm'
-      ? theme.typography.components.label.xsm!.fontSize
+      ? theme.typography.components.label.xsm!.lineHeight
       : $size === 'md'
         ? theme.typography.components.label.sm!.lineHeight
         : theme.typography.components.label.md!.lineHeight};
