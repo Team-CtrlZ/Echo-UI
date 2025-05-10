@@ -16,6 +16,7 @@ const Label = (props: LabelProps): JSX.Element => {
   const {
     text,
     size,
+    isDisabled,
     isRequired,
     isVisibleHelpIcon,
     isVisibleCount,
@@ -26,7 +27,7 @@ const Label = (props: LabelProps): JSX.Element => {
   const helpIconColor = theme.colors.semantic.light.neutral.dark.hover;
 
   return (
-    <Container>
+    <Container $isDisabled={isDisabled ?? false}>
       <LabelContent $size={size}>
         {text}
         {isRequired && <Required $size={size}>*</Required>}

@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 import { StyledLabelProps } from '@/Input/Label/Label.types';
 
-export const Container = styled.div`
+export const Container = styled.div<Pick<StyledLabelProps, '$isDisabled'>>`
   display: flex;
   align-items: center;
   gap: 8px;
+  opacity: ${({ $isDisabled }) => ($isDisabled ? 0.65 : 1)};
 `;
 
-export const LabelContent = styled.div<StyledLabelProps>`
+export const LabelContent = styled.div<Pick<StyledLabelProps, '$size'>>`
   display: flex;
   align-items: center;
   gap: 2px;
@@ -24,7 +25,7 @@ export const LabelContent = styled.div<StyledLabelProps>`
     theme.typography.components.label[$size]!.lineHeight};
 `;
 
-export const Required = styled.span<StyledLabelProps>`
+export const Required = styled.span<Pick<StyledLabelProps, '$size'>>`
   font-family: ${({ theme }) => theme.fontFamily};
   font-size: ${({ $size, theme }) =>
     theme.typography.components.label[$size === 'md' ? 'sm' : 'xsm']!.fontSize};
@@ -43,7 +44,7 @@ export const EmptyHelpIcon = styled.div`
   height: 16px;
 `;
 
-export const CountContent = styled.div<StyledLabelProps>`
+export const CountContent = styled.div<Pick<StyledLabelProps, '$size'>>`
   color: ${({ theme }) => theme.colors.components.light.text.default};
   text-align: right;
 
