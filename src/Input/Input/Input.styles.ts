@@ -84,6 +84,10 @@ export const TextField = styled.div<StyledInputProps>`
   &:has(input:disabled) {
     cursor: not-allowed;
     background: ${({ theme }) => theme.colors.theme.subBrand[50]};
+    color: ${({ theme }) => theme.colors.components.light.text.disabled};
+  }
+  &:has(input::placeholder) {
+    color: ${({ theme }) => theme.colors.components.light.text.mute};
   }
 `;
 
@@ -107,10 +111,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   flex: 1 0 0;
 
   border: none;
-  color: ${({ $state, theme }) =>
-    $state === 'default'
-      ? theme.colors.components.light.text.default
-      : theme.colors.components.light.text.critical};
+  color: inherit;
   caret-color: ${({ theme }) =>
     theme.colors.semantic.light.primary.normal.default};
   background: inherit;
@@ -127,7 +128,6 @@ export const StyledInput = styled.input<StyledInputProps>`
       : theme.typography.semantic.body[$size]!.lineHeight};
 
   &:disabled {
-    color: ${({ theme }) => theme.colors.components.light.text.disabled};
     cursor: not-allowed;
   }
 

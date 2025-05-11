@@ -84,7 +84,7 @@ export const LeadingIcon: Story = {
     helpMessageText: 'Help Message'
   },
   render: function Render(args) {
-    const [{ sizeType, value, state }, updateArgs] = useArgs();
+    const [{ sizeType }, updateArgs] = useArgs();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value: v } = event.target;
@@ -96,13 +96,7 @@ export const LeadingIcon: Story = {
         onChange={handleChange}
         leadingIcon={
           <Icon.General
-            color={
-              state !== 'default'
-                ? 'currentColor'
-                : value === ''
-                  ? '#00000040'
-                  : 'currentColor'
-            }
+            color={'currentColor'}
             height={sizeType === 'xsm' ? 16 : 20}
             width={sizeType === 'xsm' ? 16 : 20}
             name={'search'}
