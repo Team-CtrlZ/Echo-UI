@@ -37,6 +37,10 @@
     "./TextLink": {
       "import": "./dist/TextLink/index.js",
       "types": "./dist/TextLink/index.d.ts"
+    },
+    "./Input": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
     }
   },
   "dependencies": {
