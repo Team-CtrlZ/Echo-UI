@@ -2,12 +2,13 @@ name: Build Storybook
 
 on:
   pull_request:
-    branches-ignore:
-      - 'main'
-      - 'develop'
+    types:
+      - synchronize
+    branches:
       - 'feature/**'
       - 'bugfix/**'
       - 'hotfix/**'
+
   push:
     branches:
       - 'feature/**'
