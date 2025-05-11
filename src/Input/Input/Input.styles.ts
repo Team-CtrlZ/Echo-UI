@@ -38,14 +38,33 @@ export const TextField = styled.div<StyledInputProps>`
     $state === 'error'
       ? theme.colors.semantic.light.critical.normal.default
       : theme.colors.theme.subBrand[200]};
-  
+
   background: ${({ theme }) => theme.colors.components.light.bg.primary};
   color: ${({ $state, theme }) =>
     $state === 'default'
       ? theme.colors.components.light.text.default
       : theme.colors.components.light.text.critical};
-  
-  &:hover &:has(input:hover) {
+
+  &:read-only {
+    border-color: ${({ $state, theme }) =>
+      $state === 'error'
+        ? theme.colors.semantic.light.critical.normal.default
+        : theme.colors.theme.subBrand[200]};
+    background: ${({ theme }) => theme.colors.components.light.bg.primary};
+    &:hover {
+      border-width: ${({ $state }) => ($state === 'error' ? '1.5px' : '1px')};
+      background: ${({ theme }) => theme.colors.components.light.bg.input};
+    }
+    &:has(input:focus) {
+      border-color: ${({ $state, theme }) =>
+        $state === 'error'
+          ? theme.colors.semantic.light.critical.normal.default
+          : theme.colors.components.light.border.focusedRing};
+      background: ${({ theme }) => theme.colors.components.light.bg.primary};
+    }
+  }
+
+  &:hover {
     background: ${({ theme }) => theme.colors.components.light.bg.input};
     border-width: ${({ $state }) => ($state === 'error' ? '1.5px' : '1px')};
     border-color: ${({ $state, theme }) =>
@@ -59,23 +78,12 @@ export const TextField = styled.div<StyledInputProps>`
       $state === 'error'
         ? theme.colors.semantic.light.critical.normal.default
         : theme.colors.components.light.border.focusedRing};
+    background: ${({ theme }) => theme.colors.components.light.bg.primary};
   }
 
   &:has(input:disabled) {
     cursor: not-allowed;
     background: ${({ theme }) => theme.colors.theme.subBrand[50]};
-  }
-
-  &:read-only {
-    border-color: ${({ $state, theme }) =>
-      $state === 'error'
-        ? theme.colors.semantic.light.critical.normal.default
-        : theme.colors.theme.subBrand[200]};
-    background: ${({ theme }) => theme.colors.components.light.bg.primary};
-    &:hover {
-      border-width: ${({ $state }) => ($state === 'error' ? '1.5px' : '1px')};
-      background: ${({ theme }) => theme.colors.components.light.bg.input};
-    }
   }
 `;
 
