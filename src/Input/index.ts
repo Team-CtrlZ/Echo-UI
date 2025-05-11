@@ -1,5 +1,12 @@
 import Input from '@/Input/Input/Input';
+import Textarea from '@/Input/Textarea/Textarea';
 
-export const Inputs = {
-  Input
+interface InputsType {
+  Input: typeof Input;
+  Textarea: typeof Textarea;
+}
+
+export const Inputs: InputsType = {
+  Input,
+  Textarea
 };
