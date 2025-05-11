@@ -4,7 +4,9 @@ import { StyledLabelProps } from '@/Input/Label/Label.types';
 
 export const Container = styled.div<Pick<StyledLabelProps, '$isDisabled'>>`
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   opacity: ${({ $isDisabled }) => ($isDisabled ? 0.65 : 1)};
 `;
