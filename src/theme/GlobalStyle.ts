@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle<{ fontFamily: string }>`
     @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle<{ fontFamily: string }>`
 */
     
     html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    h1, h2, h3, h4, h5, h6, p, blockquote, button, pre,
     a, abbr, acronym, address, big, cite, code,
     del, dfn, em, img, ins, kbd, q, s, samp,
     small, strike, strong, sub, sup, tt, var,
@@ -24,8 +24,8 @@ export const GlobalStyle = createGlobalStyle<{ fontFamily: string }>`
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 100%;
         font: inherit;
+        background: inherit;
         vertical-align: baseline;
     }
 

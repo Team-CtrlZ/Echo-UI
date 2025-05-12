@@ -37,6 +37,10 @@
     "./TextLink": {
       "import": "./dist/TextLink/index.js",
       "types": "./dist/TextLink/index.d.ts"
+    },
+    "./Checkbox": {
+      "import": "./dist/Checkbox/index.js",
+      "types": "./dist/Checkbox/index.d.ts"
     }
   },
   "dependencies": {
