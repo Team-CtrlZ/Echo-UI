@@ -13,7 +13,7 @@ const Body = (props: TypographyProps): JSX.Element => {
   const style = theme.typography.semantic.body[size] as TypographyType;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <StyledTypography
         $fontSize={style.fontSize}
         $fontWeight={fontWeight || style.fontWeight}

@@ -13,7 +13,7 @@ const Label = (props: TypographyProps): JSX.Element => {
   const style = theme.typography.components.label[size] as TypographyType;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <StyledTypography
         $fontSize={style.fontSize}
         $fontWeight={fontWeight || style.fontWeight}

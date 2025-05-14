@@ -8,7 +8,7 @@ const TextLink = (props: TextLinkProps): JSX.Element => {
   const { theme, size, text, isTrailingIcon, icon, ...rest } = props;
 
   return (
-    <ThemeProvider theme={{}}>
+    <ThemeProvider>
       <Container $theme={theme}>
         <StyledAnchor
           $theme={theme}

@@ -13,7 +13,7 @@ const Display = (props: TypographyProps): JSX.Element => {
   const style = theme.typography.semantic.display[size] as TypographyType;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <StyledTypography
         $fontSize={style.fontSize}
         $fontWeight={style.fontWeight}

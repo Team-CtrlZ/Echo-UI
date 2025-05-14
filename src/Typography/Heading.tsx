@@ -7,13 +7,13 @@ import { StyledTypography } from '@/Typography/Typography.styles';
 import { TypographyProps } from '@/Typography/Typography.types';
 
 const Heading = (props: TypographyProps): JSX.Element => {
-  const { size,fontWeight, as, className, color, children } = props;
+  const { size, fontWeight, as, className, color, children } = props;
 
   const theme = useTheme();
   const style = theme.typography.semantic.heading[size] as TypographyType;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <StyledTypography
         $fontSize={style.fontSize}
         $fontWeight={fontWeight || style.fontWeight}
