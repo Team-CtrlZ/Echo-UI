@@ -5,6 +5,7 @@ import path from 'path';
 import dts from 'vite-plugin-dts';
 import libCss from 'vite-plugin-libcss';
 import fg from 'fast-glob';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const __dirname = path.resolve();
 const entries = fg
@@ -36,6 +37,11 @@ export default defineConfig({
           ]
         ]
       }
+    }),
+    viteStaticCopy({
+      targets: [
+        { src: 'src/theme/styles.css', dest: '.' }
+      ]
     }),
     tsconfigPaths(),
     dts({ insertTypesEntry: true, tsconfigPath: 'tsconfig.app.json' }),
