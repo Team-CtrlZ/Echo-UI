@@ -24,7 +24,6 @@ export const GlobalStyle = createGlobalStyle<{ fontFamily: string }>`
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 100%;
         font: inherit;
         vertical-align: baseline;
     }
@@ -49,7 +48,6 @@ export const GlobalStyle = createGlobalStyle<{ fontFamily: string }>`
 
     blockquote:before, blockquote:after,
     q:before, q:after {
-        content: '';
         content: none;
     }
 
