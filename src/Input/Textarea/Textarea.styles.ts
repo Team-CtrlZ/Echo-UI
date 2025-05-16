@@ -38,6 +38,30 @@ export const TextField = styled.div<StyledTextareaProps>`
   overflow-y: auto;
   overflow-x: hidden;
 
+  &::-webkit-scrollbar {
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    background: none;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background: none;
+    padding: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: ${({ theme }) => theme.colors.components.light.text.disabled};
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
   &:hover {
     background: ${({ theme }) => theme.colors.components.light.bg.input};
     border-width: ${({ $state }) => ($state === 'error' ? '1.5px' : '1px')};
