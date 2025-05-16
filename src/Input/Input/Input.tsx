@@ -26,8 +26,8 @@ const Input = (props: InputProps): JSX.Element => {
     isVisibleHelpMessage,
     helpMessageText,
     // Text Field
-    leadingIcon,
-    trailingIcon,
+    iconLeft,
+    iconRight,
     // HTML Input
     disabled,
     readOnly,
@@ -48,7 +48,7 @@ const Input = (props: InputProps): JSX.Element => {
         )}
         <Form>
           <TextField $size={sizeType} $state={state || 'default'}>
-            {!!leadingIcon && <LeadingIcon>{leadingIcon}</LeadingIcon>}
+            {!!iconLeft && <LeadingIcon>{iconLeft}</LeadingIcon>}
             <StyledInput
               $size={sizeType}
               $state={state || 'default'}
@@ -56,7 +56,7 @@ const Input = (props: InputProps): JSX.Element => {
               readOnly={readOnly}
               {...rest}
             />
-            {!!trailingIcon && <TrailingIcon>{trailingIcon}</TrailingIcon>}
+            {!!iconRight && <TrailingIcon>{iconRight}</TrailingIcon>}
           </TextField>
           {isVisibleHelpMessage && (
             <HelpMessage

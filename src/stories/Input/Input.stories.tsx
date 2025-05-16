@@ -69,7 +69,7 @@ export const PlainText: Story = {
   }
 };
 
-export const LeadingIcon: Story = {
+export const IconLeft: Story = {
   args: {
     sizeType: 'md',
     state: 'default',
@@ -94,7 +94,7 @@ export const LeadingIcon: Story = {
     return (
       <Inputs.Input
         onChange={handleChange}
-        leadingIcon={
+        iconLeft={
           <Icon.General
             color={'currentColor'}
             height={sizeType === 'xsm' ? 16 : 20}
@@ -109,7 +109,7 @@ export const LeadingIcon: Story = {
   }
 };
 
-export const TrailingIcon: Story = {
+export const IconRight: Story = {
   args: {
     sizeType: 'md',
     state: 'default',
@@ -139,7 +139,7 @@ export const TrailingIcon: Story = {
     return (
       <Inputs.Input
         onChange={handleChange}
-        leadingIcon={
+        iconLeft={
           <Icon.General
             color={
               state !== 'default'
@@ -154,7 +154,7 @@ export const TrailingIcon: Story = {
             variant={'line'}
           />
         }
-        trailingIcon={
+        iconRight={
           <TrailingButton onClick={handleClick}>
             <Icon.Alerts
               name={'xCircle'}

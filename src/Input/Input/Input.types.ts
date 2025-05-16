@@ -14,8 +14,8 @@ export interface InputProps
   labelText?: string;
   isVisibleHelpMessage?: boolean;
   helpMessageText?: string;
-  leadingIcon?: React.ReactNode;
-  trailingIcon?: React.ReactNode;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
 }
 
 export interface StyledInputProps {
