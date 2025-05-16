@@ -1,10 +1,18 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import Checkbox from '@/Checkbox';
+import { defaultTheme, ThemeProvider } from '@/theme';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Checkbox',
   component: Checkbox,
+  decorators: [
+    (Story) => (
+      <ThemeProvider theme={defaultTheme}>
+        <Story />
+      </ThemeProvider>
+    )
+  ],
   argTypes: {
     state: {
       control: 'select',

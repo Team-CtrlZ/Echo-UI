@@ -6,7 +6,6 @@ import Intermediate from '@/Checkbox/Intermediate';
 import Preselected from '@/Checkbox/Preselected';
 import Selected from '@/Checkbox/Selected';
 import Unselected from '@/Checkbox/Unselected';
-import { ThemeProvider } from '@/theme';
 
 const Checkbox = (props: CheckboxProps): JSX.Element => {
   const { state, status, disabled, ...rest } = props;
@@ -17,26 +16,31 @@ const Checkbox = (props: CheckboxProps): JSX.Element => {
     event.preventDefault();
     setButtonState('hover');
   };
+
   const handleMouseLeave = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled || state === 'critical') return;
     event.preventDefault();
     setButtonState('default');
   };
+
   const handleMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled || state === 'critical') return;
     event.preventDefault();
     setButtonState('pressed');
   };
+
   const handleMouseUp = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled || state === 'critical') return;
     event.preventDefault();
     setButtonState('hover');
   };
+
   const handleFocus = (event: React.FocusEvent<HTMLButtonElement>) => {
     if (disabled || state === 'critical') return;
     event.preventDefault();
     setButtonState('focused');
   };
+
   const handleBlur = (event: React.FocusEvent<HTMLButtonElement>) => {
     if (disabled || state === 'critical') return;
     event.preventDefault();
@@ -49,38 +53,32 @@ const Checkbox = (props: CheckboxProps): JSX.Element => {
   }, [state, disabled]);
 
   return (
-    <ThemeProvider theme={{}}>
-      <StyledButton
-        {...rest}
-        disabled={disabled}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        autoFocus={true}
-      >
-        {(() => {
-          switch (status) {
-            case 'unselected':
-              return <Unselected state={disabled ? 'disabled' : buttonState} />;
-            case 'selected':
-              return <Selected state={disabled ? 'disabled' : buttonState} />;
-            case 'intermediate':
-              return (
-                <Intermediate state={disabled ? 'disabled' : buttonState} />
-              );
-            case 'preselected':
-              return (
-                <Preselected state={disabled ? 'disabled' : buttonState} />
-              );
-            default:
-              return null;
-          }
-        })()}
-      </StyledButton>
-    </ThemeProvider>
+    <StyledButton
+      {...rest}
+      disabled={disabled}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      autoFocus={true}
+    >
+      {(() => {
+        switch (status) {
+          case 'unselected':
+            return <Unselected state={disabled ? 'disabled' : buttonState} />;
+          case 'selected':
+            return <Selected state={disabled ? 'disabled' : buttonState} />;
+          case 'intermediate':
+            return <Intermediate state={disabled ? 'disabled' : buttonState} />;
+          case 'preselected':
+            return <Preselected state={disabled ? 'disabled' : buttonState} />;
+          default:
+            return null;
+        }
+      })()}
+    </StyledButton>
   );
 };
 
