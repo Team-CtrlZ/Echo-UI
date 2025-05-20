@@ -4,9 +4,10 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
-    branches-ignore:
-      - 'release/**'
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'hotfix/**'
 
 jobs:
   chromatic:
@@ -25,15 +26,17 @@ jobs:
       - name: Run Chromatic and extract review URL
         id: chromatic
         run: |
-          OUTPUT=$(npx chromatic \
-                    --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} \
-                    --branch=$GITHUB_HEAD_REF \
-                    --commit=$GITHUB_SHA \
-                    --exit-zero-on-changes)
-          echo "$OUTPUT" > chromatic-output.txt
-      
-          # Build URL 파싱
-          BUILD_URL=$(echo "$OUTPUT" | grep -o 'https://www.chromatic.com/build?appId=[^ ]*')
+          npx chromatic \
+          --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} \
+          --branch=$GITHUB_HEAD_REF \
+          --commit=$GITHUB_SHA \
+          --exit-zero-on-changes \
+          --json > chromatic-output.json 2>&1
+          
+          echo "✅ 🔍 Raw output ↓"
+          cat chromatic-output.json
+          
+          BUILD_URL=$(grep -o 'https://www.chromatic.com/build?appId=[^"]*' chromatic-output.json | head -n 1)
           echo "BUILD_URL=$BUILD_URL" >> $GITHUB_ENV
 
       - name: Install jq
@@ -63,18 +66,6 @@ jobs:
           echo "✅ PR_AUTHOR=$PR_AUTHOR"
           echo "✅ PR_URL=$PR_URL"
           
-          npx chromatic \
-            --project-token=$CHROMATIC_PROJECT_TOKEN \
-            --branch=$GITHUB_HEAD_REF \
-            --commit=$GITHUB_SHA \
-            --exit-once-uploaded \
-            --exit-zero-on-changes \
-            --json > chromatic-output.json 2>&1
-          
-          echo "✅ 🔍 Raw output ↓"
-          cat chromatic-output.json
-          echo "✅ 🔍 Raw end"
-          
           if [ -z "$BUILD_URL" ]; then
             echo "ℹ️ Falling back to grep for BUILD_URL"
             BUILD_URL=$(grep -o 'https://www.chromatic.com/build?appId=[^"]*' chromatic-output.json | head -n 1)
@@ -86,7 +77,7 @@ jobs:
             echo "❌ Skipping Discord notification."
             exit 0
           fi
-  
+          
           TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           
           echo "✅ BUILD_URL=$BUILD_URL"
@@ -136,7 +127,7 @@ jobs:
           cat curl-response.log || echo "❌ curl-response.log not found"
           CURL_EXIT_CODE=$?
           echo "✅ curl finished with exit code $CURL_EXIT_CODE"
-  
+          
           CURL_EXIT_CODE=$?
           echo "✅ curl finished with exit code $CURL_EXIT_CODE"
           

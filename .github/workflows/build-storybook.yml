@@ -1,14 +1,19 @@
 name: Build Storybook
 
 on:
+  pull_request:
+    types:
+      - synchronize
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'hotfix/**'
+
   push:
     branches:
       - 'feature/**'
       - 'bugfix/**'
       - 'hotfix/**'
-  pull_request:
-    branches-ignore:
-      - '**'
 
 jobs:
   deploy:
