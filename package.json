@@ -1,7 +1,7 @@
 {
   "name": "design-system",
   "private": true,
-  "version": "0.2.0-2",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -45,6 +45,10 @@
     "./TextLink": {
       "import": "./dist/TextLink.js",
       "types": "./dist/TextLink.d.ts"
+    },
+    "./Input": {
+      "import": "./dist/Input.js",
+      "types": "./dist/Input.d.ts"
     }
   },
   "dependencies": {

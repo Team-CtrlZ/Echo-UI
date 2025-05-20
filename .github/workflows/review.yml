@@ -32,10 +32,10 @@ jobs:
           --commit=$GITHUB_SHA \
           --exit-zero-on-changes \
           --json > chromatic-output.json 2>&1
-          
+      
           echo "✅ 🔍 Raw output ↓"
           cat chromatic-output.json
-          
+      
           BUILD_URL=$(grep -o 'https://www.chromatic.com/build?appId=[^"]*' chromatic-output.json | head -n 1)
           echo "BUILD_URL=$BUILD_URL" >> $GITHUB_ENV
 
