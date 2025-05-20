@@ -10,12 +10,12 @@ import { deepMerge } from '@/utils/merge';
 
 interface ThemeProviderProps {
   children: React.ReactNode;
-  theme: Partial<Theme>;
+  theme?: Partial<Theme>;
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
-  theme = {}
+  theme = defaultTheme
 }) => {
    
   const mergedTheme= deepMerge(defaultTheme, theme);

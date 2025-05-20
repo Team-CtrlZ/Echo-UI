@@ -77,7 +77,7 @@ jobs:
             echo "❌ Skipping Discord notification."
             exit 0
           fi
-  
+          
           TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           
           echo "✅ BUILD_URL=$BUILD_URL"
@@ -127,7 +127,7 @@ jobs:
           cat curl-response.log || echo "❌ curl-response.log not found"
           CURL_EXIT_CODE=$?
           echo "✅ curl finished with exit code $CURL_EXIT_CODE"
-  
+          
           CURL_EXIT_CODE=$?
           echo "✅ curl finished with exit code $CURL_EXIT_CODE"
           
