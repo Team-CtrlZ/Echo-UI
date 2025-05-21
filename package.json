@@ -13,43 +13,52 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic"
   },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./theme": {
-      "import": "./dist/theme/index.js",
-      "types": "./dist/theme/index.d.ts"
+      "import": "./dist/theme.js",
+      "types": "./dist/theme.d.ts"
+    },
+    "./theme/styles.css": {
+      "import": "./dist/styles.css"
     },
     "./Button": {
-      "import": "./dist/Button/index.js",
-      "types": "./dist/Button.index.d.ts"
+      "import": "./dist/Button.js",
+      "types": "./dist/Button.d.ts"
     },
     "./Icon": {
-      "import": "./dist/icons/index.js",
-      "types": "./dist/icons/index.d.ts"
+      "import": "./dist/icons.js",
+      "types": "./dist/icons.d.ts"
     },
     "./Typography": {
-      "import": "./dist/Typography/index.js",
-      "types": "./dist/Typography/index.d.ts"
+      "import": "./dist/Typography.js",
+      "types": "./dist/Typography.d.ts"
     },
     "./TextLink": {
-      "import": "./dist/TextLink/index.js",
-      "types": "./dist/TextLink/index.d.ts"
+      "import": "./dist/TextLink.js",
+      "types": "./dist/TextLink.d.ts"
     },
-    "./Checkbox": {
-      "import": "./dist/Checkbox/index.js",
-      "types": "./dist/Checkbox/index.d.ts"
+    "./Input": {
+      "import": "./dist/Input.js",
+      "types": "./dist/Input.d.ts"
     }
   },
   "dependencies": {
+    "fg": "^0.0.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "styled-components": "^6.1.17"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",
+    "@eslint/css": "^0.7.0",
     "@eslint/js": "^9.25.0",
     "@storybook/addon-docs": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.12",
@@ -73,6 +82,7 @@
     "@vitejs/plugin-react-swc": "^3.8.0",
     "@vitest/browser": "^3.1.1",
     "@vitest/coverage-v8": "^3.1.1",
+    "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^9.25.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-import": "^2.31.0",
@@ -85,11 +95,18 @@
     "playwright": "^1.51.1",
     "prettier": "^3.5.3",
     "storybook": "^8.6.12",
+    "styled-components": "^6.1.18",
+    "stylelint": "^16.19.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-order": "^7.0.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.2.0",
     "vite-plugin-dts": "^4.5.3",
     "vite-plugin-libcss": "^1.1.1",
+    "vite-plugin-static-copy": "^3.0.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.1.1"
   },

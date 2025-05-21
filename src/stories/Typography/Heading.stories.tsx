@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
 
-import { defaultTheme } from '@/theme';
+import {defaultTheme, ThemeProvider} from '@/theme';
 import { Typography } from '@/Typography';
 
 const meta: Meta<typeof Typography.Heading> = {
