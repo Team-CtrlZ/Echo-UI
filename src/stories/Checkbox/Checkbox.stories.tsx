@@ -33,7 +33,7 @@ export const Unselected: Story = {
     disabled: false
   },
   render: (args) => {
-    return <Checkbox {...args} status={'unselected'} />;
+    return <Checkbox {...args} status={'unselected'} autoFocus={true} />;
   }
 };
 
@@ -43,7 +43,7 @@ export const Selected: Story = {
     disabled: false
   },
   render: (args) => {
-    return <Checkbox {...args} status={'selected'} />;
+    return <Checkbox {...args} status={'selected'} autoFocus={true} />;
   }
 };
 
@@ -53,7 +53,7 @@ export const Intermediate: Story = {
     disabled: false
   },
   render: (args) => {
-    return <Checkbox {...args} status={'intermediate'} />;
+    return <Checkbox {...args} status={'intermediate'} autoFocus={true} />;
   }
 };
 
@@ -63,6 +63,6 @@ export const Preselected: Story = {
     disabled: false
   },
   render: (args) => {
-    return <Checkbox {...args} status={'preselected'} />;
+    return <Checkbox {...args} status={'preselected'} autoFocus={true} />;
   }
 };
