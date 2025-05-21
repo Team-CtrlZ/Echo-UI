@@ -62,7 +62,6 @@ const Checkbox = (props: CheckboxProps): JSX.Element => {
       onMouseUp={handleMouseUp}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      autoFocus={true}
     >
       {(() => {
         switch (status) {
