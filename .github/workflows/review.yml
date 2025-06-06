@@ -4,10 +4,9 @@ on:
   pull_request:
     types:
       - opened
-    branches:
-      - 'feature/**'
-      - 'bugfix/**'
-      - 'hotfix/**'
+      - synchronize
+    branches-ignore:
+      - 'release/**'
 
 jobs:
   chromatic:
