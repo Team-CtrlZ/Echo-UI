@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import Unselected from '@/Radio/index';
 import { StyledRadio } from '@/Radio/Radio.styles';
 import { RadioButtonState, RadioProps } from '@/Radio/Radio.types';
 import Selected from '@/Radio/Selected';
+import Unselected from '@/Radio/Unselected';
 
 const Radio = (props: RadioProps) => {
   const { state, isSelected, disabled, ...rest } = props;
