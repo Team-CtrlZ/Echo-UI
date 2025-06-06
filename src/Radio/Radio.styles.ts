@@ -10,6 +10,7 @@ export const StyledRadio = styled.button`
   flex-shrink: 0;
   aspect-ratio: 1/1;
   background: ${({ theme }) => theme.colors.components.light.bg.primary};
+  border: none;
 
   &:focus-within,
   &:focus-visible,
@@ -17,5 +18,9 @@ export const StyledRadio = styled.button`
     border-radius: 100%;
     border: ${({ theme }) =>
       `1.5px solid ${theme.colors.components.light.border.focusedRing}`};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 `;
