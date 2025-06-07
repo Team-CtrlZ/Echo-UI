@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Button, { ButtonSize, ButtonTheme } from '@/Button';
 import { ThemeProvider } from '@/theme';
+import { Typography } from '@/Typography';
 
 const Container = styled.div<{ $size: ButtonSize }>`
   display: flex;
@@ -75,7 +76,7 @@ const Dot = styled.div<{ $size: ButtonSize; $theme: ButtonTheme }>`
 `;
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered'
@@ -118,7 +119,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Example: Story = {
+export const Default: Story = {
   args: {
     theme: 'primary',
     size: 'lg',
@@ -249,6 +250,378 @@ export const Example: Story = {
             }
           })()}
         </Button>
+      </ThemeProvider>
+    );
+  }
+};
+
+export const Variants: Story = {
+  args: {
+    theme: 'primary',
+    size: 'lg',
+    paddingType: 'default',
+    disabled: false,
+    isCompact: false,
+    children: <p>Button</p>
+  },
+  render: () => {
+    return (
+      <ThemeProvider>
+        <div
+          style={{
+            minWidth: '716px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '40px'
+          }}
+        >
+          <Typography.Heading size={'md'}>Type</Typography.Heading>
+
+          {/* Primary */}
+          <div
+            style={{
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              borderRadius: '20px',
+              background: '#F8F8F8'
+            }}
+          >
+            <Typography.Body size={'md'}>Primary</Typography.Body>
+            <Typography.Body size={'sm'}>
+              배경색이 채워진 버튼으로, 강조해야할 주요 액션에 사용됩니다. CTA
+              버튼
+            </Typography.Body>
+            <div
+              style={{
+                display: 'flex',
+                padding: '24px',
+                gap: '24px',
+                background: '#FFF'
+              }}
+            >
+              <Button size={'xl'} theme={'primary'} paddingType={'default'}>
+                <p>BUTTON</p>
+              </Button>
+              <Button
+                size={'xl'}
+                theme={'primary'}
+                paddingType={'default'}
+                disabled={true}
+              >
+                <p>BUTTON</p>
+              </Button>
+            </div>
+          </div>
+
+          {/* Critical */}
+          <div
+            style={{
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              borderRadius: '20px',
+              background: '#F8F8F8'
+            }}
+          >
+            <Typography.Body size={'md'}>Critical</Typography.Body>
+            <Typography.Body size={'sm'}>
+              파괴적인 동작 시 경고로 사용됩니다.
+            </Typography.Body>
+            <div
+              style={{
+                display: 'flex',
+                padding: '24px',
+                gap: '24px',
+                background: '#FFF'
+              }}
+            >
+              <Button size={'xl'} theme={'critical'} paddingType={'default'}>
+                <p>BUTTON</p>
+              </Button>
+              <Button
+                size={'xl'}
+                theme={'critical'}
+                paddingType={'default'}
+                disabled={true}
+              >
+                <p>BUTTON</p>
+              </Button>
+            </div>
+          </div>
+
+          {/* Secondary */}
+          <div
+            style={{
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              borderRadius: '20px',
+              background: '#F8F8F8'
+            }}
+          >
+            <Typography.Body size={'md'}>Secondary</Typography.Body>
+            <Typography.Body size={'sm'}>
+              보조 버튼은 페이지의 주요 초점이 아닌 동작에 사용됩니다.
+            </Typography.Body>
+            <div
+              style={{
+                display: 'flex',
+                padding: '24px',
+                gap: '24px',
+                background: '#FFF'
+              }}
+            >
+              <Button size={'xl'} theme={'secondary'} paddingType={'default'}>
+                <p>BUTTON</p>
+              </Button>
+              <Button
+                size={'xl'}
+                theme={'secondary'}
+                paddingType={'default'}
+                disabled={true}
+              >
+                <p>BUTTON</p>
+              </Button>
+            </div>
+          </div>
+
+          {/* Neutral Outline (Tertiary) */}
+          <div
+            style={{
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              borderRadius: '20px',
+              background: '#F8F8F8'
+            }}
+          >
+            <Typography.Body size={'md'}>
+              Neutral Outline (Tertiary)
+            </Typography.Body>
+            <Typography.Body size={'sm'}>
+              보조 버튼은 페이지의 주요 초점이 아닌 동작에 사용됩니다.
+            </Typography.Body>
+            <div
+              style={{
+                display: 'flex',
+                padding: '24px',
+                gap: '24px',
+                background: '#FFF'
+              }}
+            >
+              <Button
+                size={'xl'}
+                theme={'neutralOutline'}
+                paddingType={'default'}
+              >
+                <p>BUTTON</p>
+              </Button>
+              <Button
+                size={'xl'}
+                theme={'neutralOutline'}
+                paddingType={'default'}
+                disabled={true}
+              >
+                <p>BUTTON</p>
+              </Button>
+            </div>
+          </div>
+
+          {/* Secondary Text */}
+          <div
+            style={{
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              borderRadius: '20px',
+              background: '#F8F8F8'
+            }}
+          >
+            <Typography.Body size={'md'}>Secondary text</Typography.Body>
+            <Typography.Body size={'sm'}>
+              가장 낮은 위계로 사용되며, 다양한 액션이 제공될 되어야 할 때
+              사용됩니다. 카드, 모달 등
+            </Typography.Body>
+            <div
+              style={{
+                display: 'flex',
+                padding: '24px',
+                gap: '24px',
+                background: '#FFF'
+              }}
+            >
+              <Button
+                size={'xl'}
+                theme={'secondaryText'}
+                paddingType={'default'}
+              >
+                <p>BUTTON</p>
+              </Button>
+              <Button
+                size={'xl'}
+                theme={'secondaryText'}
+                paddingType={'default'}
+                disabled={true}
+              >
+                <p>BUTTON</p>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </ThemeProvider>
+    );
+  }
+};
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <ThemeProvider>
+        <div
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '24px' }}
+        >
+          {/* Primary */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              minWidth: '113px',
+              gap: '20px'
+            }}
+          >
+            <Button paddingType={'default'} size={'xl'} theme={'primary'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'lg'} theme={'primary'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'md'} theme={'primary'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'sm'} theme={'primary'}>
+              BUTTON
+            </Button>
+          </div>
+
+          {/* Critical */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              minWidth: '113px',
+              gap: '20px'
+            }}
+          >
+            <Button paddingType={'default'} size={'xl'} theme={'critical'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'lg'} theme={'critical'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'md'} theme={'critical'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'sm'} theme={'critical'}>
+              BUTTON
+            </Button>
+          </div>
+
+          {/* Secondary */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              minWidth: '113px',
+              gap: '20px'
+            }}
+          >
+            <Button paddingType={'default'} size={'xl'} theme={'secondary'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'lg'} theme={'secondary'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'md'} theme={'secondary'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'sm'} theme={'secondary'}>
+              BUTTON
+            </Button>
+          </div>
+
+          {/* Neutral Outline */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              minWidth: '113px',
+              gap: '20px'
+            }}
+          >
+            <Button
+              paddingType={'default'}
+              size={'xl'}
+              theme={'neutralOutline'}
+            >
+              BUTTON
+            </Button>
+            <Button
+              paddingType={'default'}
+              size={'lg'}
+              theme={'neutralOutline'}
+            >
+              BUTTON
+            </Button>
+            <Button
+              paddingType={'default'}
+              size={'md'}
+              theme={'neutralOutline'}
+            >
+              BUTTON
+            </Button>
+            <Button
+              paddingType={'default'}
+              size={'sm'}
+              theme={'neutralOutline'}
+            >
+              BUTTON
+            </Button>
+          </div>
+
+          {/* Secondary Text */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              minWidth: '113px',
+              gap: '20px'
+            }}
+          >
+            <Button paddingType={'default'} size={'xl'} theme={'secondaryText'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'lg'} theme={'secondaryText'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'md'} theme={'secondaryText'}>
+              BUTTON
+            </Button>
+            <Button paddingType={'default'} size={'sm'} theme={'secondaryText'}>
+              BUTTON
+            </Button>
+          </div>
+        </div>
       </ThemeProvider>
     );
   }
