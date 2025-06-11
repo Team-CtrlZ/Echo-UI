@@ -149,19 +149,19 @@ export type ComponentColors = {
 
 /* Typography */
 export type TypographySize =
-  | 'xsm'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | '2xl'
-  | '3xl'
-  | '4xl'
-  | '5xl'
-  | '6xl'
-  | '7xl'
+  | '9xl'
   | '8xl'
-  | '9xl';
+  | '7xl'
+  | '6xl'
+  | '5xl'
+  | '4xl'
+  | '3xl'
+  | '2xl'
+  | 'xl'
+  | 'lg'
+  | 'md'
+  | 'sm'
+  | 'xsm';
 export type SemanticTypographyType = 'display' | 'heading' | 'body';
 export type ComponentTypographyType = 'label' | 'button';
 
@@ -185,6 +185,7 @@ export type ComponentTypography = {
 
 /* Shadow */
 export type ShadowType = typeof shadowTokens;
+
 export interface SemanticShadow {
   elevationShadow2: string;
   elevationShadow4: string;
