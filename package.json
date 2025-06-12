@@ -49,6 +49,10 @@
     "./Input": {
       "import": "./dist/Input.js",
       "types": "./dist/Input.d.ts"
+    },
+    "./Avatar": {
+      "import": "./dist/Avatar.js",
+      "types": "./dist/Avatar.d.ts"
     }
   },
   "dependencies": {
