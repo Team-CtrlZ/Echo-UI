@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Inputs } from '@/Input';
 
 const meta: Meta<typeof Inputs.Textarea> = {
-  title: 'Input/Textarea',
+  title: 'Components/Input/Textarea',
   component: Inputs.Textarea,
   argTypes: {
     sizeType: {
