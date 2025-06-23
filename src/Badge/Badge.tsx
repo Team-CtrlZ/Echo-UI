@@ -7,15 +7,15 @@ import {
 import { BadgeProps } from '@/Badge/Badge.types';
 
 const Badge = (props: BadgeProps) => {
-  const { variant, size, outlined } = props;
+  const { variant, size, outlined, ...rest } = props;
 
   return (
     <Container>
-      {variant === 'dot' && <BadgeDot $size={size} $outlined={outlined} />}
+      {variant === 'dot' && <BadgeDot $size={size} $outlined={outlined} {...rest} />}
       {variant === 'number' && (
-        <BadgeNumber $size={size} $outlined={outlined} />
+        <BadgeNumber $size={size} $outlined={outlined} {...rest} />
       )}
-      {variant === 'text' && <BadgeText $size={size} $outlined={outlined} />}
+      {variant === 'text' && <BadgeText $size={size} $outlined={outlined} {...rest} />}
     </Container>
   );
 };
