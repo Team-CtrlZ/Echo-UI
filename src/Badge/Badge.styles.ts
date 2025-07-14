@@ -38,8 +38,15 @@ const BadgePadding = {
   }
 };
 
-export const Container = styled.div`
-  position: absolute;
+export const Container = styled.div<Pick<StyledBadgeProps, '$variant'>>`
+  position: ${({ $variant }) => ($variant === 'text' ? 'static' : 'absolute')};
+  right: ${({ $variant }) => ($variant === 'text' ? '' : 0)};
+  top: ${({ $variant }) => ($variant === 'text' ? '' : 0)};
+  transform: ${({ $variant }) =>
+    $variant === 'text' ? '' : 'translate(50%, -50%)'};
+
+  width: fit-content;
+  height: fit-content;
 
   color: ${({ theme }) => theme.colors.components.light.text.inverse};
 
@@ -51,12 +58,13 @@ export const Container = styled.div`
     theme.typography.components.label.xsm!.lineHeight};
 `;
 
-export const BadgeDot = styled.span<StyledBadgeProps>`
+export const BadgeDot = styled.span<Omit<StyledBadgeProps, '$variant'>>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 
+  border-radius: 100%;
   background: ${({ theme }) =>
     theme.colors.semantic.light.information.normal.default};
 
@@ -68,7 +76,7 @@ export const BadgeDot = styled.span<StyledBadgeProps>`
       : 'none'};
 `;
 
-export const BadgeNumber = styled.span<StyledBadgeProps>`
+export const BadgeNumber = styled.span<Omit<StyledBadgeProps, '$variant'>>`
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -88,7 +96,7 @@ export const BadgeNumber = styled.span<StyledBadgeProps>`
   padding: ${({ $size }) => BadgePadding[$size].number};
 `;
 
-export const BadgeText = styled.span<StyledBadgeProps>`
+export const BadgeText = styled.span<Omit<StyledBadgeProps, '$variant'>>`
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
