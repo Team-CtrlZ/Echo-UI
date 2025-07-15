@@ -49,6 +49,10 @@
     "./Input": {
       "import": "./dist/Input.js",
       "types": "./dist/Input.d.ts"
+    },
+    "./Checkbox": {
+      "import": "./dist/Checkbox.js",
+      "types": "./dist/Checkbox.d.ts"
     }
   },
   "dependencies": {
