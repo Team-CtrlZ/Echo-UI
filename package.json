@@ -53,6 +53,10 @@
     "./Checkbox": {
       "import": "./dist/Checkbox.js",
       "types": "./dist/Checkbox.d.ts"
+    },
+    "./Radio": {
+      "import": "./dist/Radio.js",
+      "types": "./dist/Radio.d.ts"
     }
   },
   "dependencies": {
