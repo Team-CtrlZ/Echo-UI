@@ -62,9 +62,9 @@ const Radio = (props: RadioProps) => {
       {...rest}
     >
       {isSelected ? (
-        <Selected state={buttonState} />
+        <Selected state={disabled ? 'disabled' : buttonState} />
       ) : (
-        <Unselected state={buttonState} />
+        <Unselected state={disabled ? 'disabled' : buttonState} />
       )}
     </StyledRadio>
   );
