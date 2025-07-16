@@ -20,7 +20,7 @@ const TrailingButton = styled.button`
 `;
 
 const meta: Meta<typeof Inputs.Input> = {
-  title: 'Input/Input',
+  title: 'Components/Input/Input',
   component: Inputs.Input,
   argTypes: {
     sizeType: {
