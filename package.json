@@ -53,6 +53,10 @@
     "./Checkbox": {
       "import": "./dist/Checkbox.js",
       "types": "./dist/Checkbox.d.ts"
+    },
+    "./Badge": {
+      "import": "./dist/Badge.js",
+      "types": "./dist/Badge.d.ts"
     }
   },
   "dependencies": {
